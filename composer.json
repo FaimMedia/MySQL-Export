@@ -1,6 +1,6 @@
 {
 	"name": "faimmedia/mysql-json-export",
-	"description": "Improved wrapper for PHP Ratchet websocket server",
+	"description": "Makes it easy to export, update and compare your MySQL databases.",
 	"homepage": "https://github.com/FaimMedia/MySQL-JSON-Export",
 
 	"license": "MIT",
