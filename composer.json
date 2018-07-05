@@ -1,0 +1,28 @@
+{
+	"name": "faimmedia/mysql-json-export",
+	"description": "Improved wrapper for PHP Ratchet websocket server",
+	"homepage": "https://github.com/FaimMedia/MySQL-JSON-Export",
+
+	"license": "MIT",
+
+	"authors": [{
+		"name": "Tim Peters",
+		"email": "info@faimmedia.nl",
+		"homepage": "https://faimmedia.nl",
+		"role": "Developer"
+	}],
+
+	"require": {
+		"php": "7.*",
+		"ext-phalcon": "3.*",
+
+		"ext-pdo" : "*",
+		"ext-pdo_mysql" : "*",
+	},
+
+	"autoload": {
+		"psr-4": {
+			"FaimMedia\\MySQLJSONExport\\": "src/"
+		}
+	}
+}
