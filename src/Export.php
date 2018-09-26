@@ -4,22 +4,68 @@ namespace FaimMedia\MySQLJSONExport;
 
 use ExportException;
 
-use Phalcon\Db\Adapter\Pdo\Mysql;
+use Phalcon\Db\Adapter\Pdo as PdoAdapter,
+    Phalcon\Db;
+
+class Fetch {
+
+}
 
 class Export {
 
 	protected $_db;
 	protected $_export = false;
+	protected $_folder;
 
 	/**
 	 * Set required parameters
 	 */
-	public function __construct(Mysql $mysql, string $folder) {
+	public function __construct(PdoAdapter $db = null, string $folder = null) {
 
-		$this->_db = $mysql;
+		if($db instanceof PdoAdapter) {
+			$this->setDatabase($db);
+		}
 
-		$this->checkFolder();
+		if($folder) {
+			$this->setFolder($folder);
+		}
+	}
 
+	/**
+	 * Set database instance
+	 */
+	public function setDatabase(PdoAdapter $db): self {
+		if($db instanceof PdoAdapter) {
+
+			$this->_db = $db;
+
+			$this->_db->connect();
+		}
+
+		return $this;
+	}
+
+	/**
+	 * Get database instance
+	 */
+	public function getDatabase(): PdoAdapter {
+		return $this->_db;
+	}
+
+	/**
+	 * Set folder
+	 */
+	public function setFolder(string $folder): self {
+		$this->checkFolder($folder);
+
+		return $this;
+	}
+
+	/**
+	 * Get folder
+	 */
+	public function getFolder(): string {
+		return $this->_folder;
 	}
 
 	/**
@@ -60,6 +106,142 @@ class Export {
 		return $folder;
 	}
 
+	/**
+	 * Export all tables
+	 */
+	public function getTablesArray(): array {
 
+		$tablesArray = [];
 
+	// fetch tables
+		$result = $this->getDatabase()->query('SHOW TABLES');
+		$result->setFetchMode(Db::FETCH_NUM);
+
+		$tables = $result->fetchAll($result);
+
+		foreach($tables as $table) {
+			$tableName = $table[0];
+
+			$result = $this->getDatabase()->query('SHOW CREATE TABLE `'.$tableName.'`');
+			$result->setFetchMode(Db::FETCH_NUM);
+
+			$createTables = $result->fetchAll($result);
+
+			foreach($createTables as $createTable) {
+				$syntax = $createTable[1];
+
+				$syntax = self::parseCreateTableSyntax($syntax);
+
+				$tableArray = [
+					'syntax'  => $createTable,
+					'fields'  => $this->getTableFieldsArray($tableName),
+				];
+			}
+
+			$tablesArray[$tableName] = $tableArray;
+		}
+
+		return $tablesArray;
+	}
+
+	/**
+	 * Export all table fields
+	 */
+	public function getTableFieldsArray(string $tableName): array {
+
+		$tableFieldsArray = [];
+
+	// get tables structure
+		$sql = $this->getDatabase()->query('SHOW FIELDS FROM `'.$tableName.'`');
+		$sql->setFetchMode(Db::FETCH_ASSOC);
+
+		$fields = $sql->fetchAll($sql);
+
+		foreach($fields as $field) {
+			$fieldKey = $field['Field'];
+
+			unset($field['Field']);
+
+			$tableFieldsArray[$fieldKey] = $field;
+		}
+
+		return $tableFieldsArray;
+	}
+
+	/**
+	 * Export all triggers
+	 */
+	public function getTriggersArray(): array {
+
+		$triggersArray = [];
+
+	// fetch triggers
+		$result = $this->getDatabase()->query('SHOW TRIGGERS');
+		$result->setFetchMode(Db::FETCH_ASSOC);
+
+		$triggers = $result->fetchAll($result);
+
+		foreach($triggers as $trigger) {
+			$triggerName = $trigger['Trigger'];
+
+			$triggerArray = [
+				'table'     => $trigger['Table'],
+				'event'     => $trigger['Event'],
+				'timing'    => $trigger['Timing'],
+				'statement' => $trigger['Statement'],
+				'sql_mode'  => $trigger['sql_mode'],
+			];
+
+			$result = $this->getDatabase()->query('SHOW CREATE TRIGGER `'.$triggerName.'`');
+			$result->setFetchMode(Db::FETCH_NUM);
+
+			$createTriggers = $result->fetchAll($result);
+
+			foreach($createTriggers as $createTrigger) {
+				$syntax = $createTrigger[2];
+
+				$syntax = self::parseTriggerSyntax($syntax);
+			}
+
+			$triggersArray[$triggerName] = $triggerArray;
+		}
+
+		return $triggersArray;
+	}
+
+/**
+ * STATIC
+ */
+	/**
+	 * Parse trigger syntax
+	 */
+	public static function parseTriggerSyntax(string $syntax): string {
+	// remove definer syntax
+		$syntax = preg_replace('/\sDEFINER=`.*?`@`.*?`\s/i', ' ', $syntax);
+
+	// replace for each row to next line
+		$syntax = preg_replace('/(\sFOR\sEACH\sROW)/i', "$1", $syntax);
+
+		return $syntax;
+	}
+
+	/**
+	 * Parse create table syntax
+	 */
+	public static function parseCreateTableSyntax(string $syntax): string {
+
+	// remove btree key type
+		$syntax = preg_replace('/\sUSING\sBTREE/i', ' ', $syntax);
+
+	// remove auto_increment value
+		$syntax = preg_replace('/\sAUTO_INCREMENT=[0-9]+\s/i', ' ', $syntax);
+
+	// remove row_format value
+		$syntax = preg_replace('/ROW_FORMAT=(DYNAMIC|FIXED|COMPACT|COMPRESSED|DEFAULT)/', ' ', $syntax);
+
+	// remove definer values
+		$syntax = preg_replace('/\sALGORITHM=UNDEFINED\sDEFINER=`.*?`\@`.*?`\sSQL\sSECURITY\sDEFINER\s/i', ' ', $syntax);
+
+		return $syntax;
+	}
 }
