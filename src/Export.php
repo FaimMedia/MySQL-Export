@@ -109,18 +109,13 @@ class Export {
 		$tablesArray = [];
 
 	// fetch tables
-		$result = $this->getDatabase()->query('SHOW TABLES');
-		$result->setFetchMode(Db::FETCH_NUM);
-
-		$tables = $result->fetchAll($result);
+		$tables = $this->getDatabase()->query('SHOW TABLES', [], PDO::FETCH_NUM);
 
 		foreach($tables as $table) {
 			$tableName = $table[0];
 
-			$result = $this->getDatabase()->query('SHOW CREATE TABLE `'.$tableName.'`');
-			$result->setFetchMode(Db::FETCH_NUM);
+			$createTables = $this->getDatabase()->query('SHOW CREATE TABLE `'.$tableName.'`', [], PDO::FETCH_NUM);
 
-			$createTables = $result->fetchAll($result);
 
 			foreach($createTables as $createTable) {
 				$syntax = $createTable[1];
@@ -147,10 +142,7 @@ class Export {
 		$tableFieldsArray = [];
 
 	// get tables structure
-		$sql = $this->getDatabase()->query('SHOW FIELDS FROM `'.$tableName.'`');
-		$sql->setFetchMode(Db::FETCH_ASSOC);
-
-		$fields = $sql->fetchAll($sql);
+		$fields = $this->getDatabase()->query('SHOW FIELDS FROM `'.$tableName.'`');
 
 		foreach($fields as $field) {
 			$fieldKey = $field['Field'];
@@ -171,10 +163,7 @@ class Export {
 		$triggersArray = [];
 
 	// fetch triggers
-		$result = $this->getDatabase()->query('SHOW TRIGGERS');
-		$result->setFetchMode(Db::FETCH_ASSOC);
-
-		$triggers = $result->fetchAll($result);
+		$triggers = $this->getDatabase()->query('SHOW TRIGGERS');
 
 		foreach($triggers as $trigger) {
 			$triggerName = $trigger['Trigger'];
@@ -187,10 +176,7 @@ class Export {
 				'sql_mode'  => $trigger['sql_mode'],
 			];
 
-			$result = $this->getDatabase()->query('SHOW CREATE TRIGGER `'.$triggerName.'`');
-			$result->setFetchMode(Db::FETCH_NUM);
-
-			$createTriggers = $result->fetchAll($result);
+			$createTriggers = $this->getDatabase()->query('SHOW CREATE TRIGGER `'.$triggerName.'`', [], Pdo::FETCH_NUM);
 
 			foreach($createTriggers as $createTrigger) {
 				$syntax = $createTrigger[2];
