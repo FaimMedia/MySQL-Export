@@ -117,16 +117,18 @@ class Export {
 
 			$createTables = $this->getDatabase()->query('SHOW CREATE TABLE `'.$tableName.'`', [], PDO::FETCH_NUM);
 
+			$tableArray = [
+				'syntax'  => null,
+				'indexes' => $this->getTableIndexesArray($tableName),
+				'fields'  => $this->getTableFieldsArray($tableName),
+			];
 
 			foreach($createTables as $createTable) {
 				$syntax = $createTable[1];
 
 				$syntax = self::parseCreateTableSyntax($syntax);
 
-				$tableArray = [
-					'syntax'  => $createTable,
-					'fields'  => $this->getTableFieldsArray($tableName),
-				];
+				$tableArray['syntax'] = $syntax;
 			}
 
 			$tablesArray[$tableName] = $tableArray;
@@ -154,6 +156,42 @@ class Export {
 		}
 
 		return $tableFieldsArray;
+	}
+
+	/**
+	 * Export all table indexes
+	 */
+	public function getTableIndexesArray(string $tableName): array {
+
+		$tableIndexesArray = [];
+
+	// get tables indexes
+		$indexes = $this->getDatabase()->query('SHOW INDEX FROM `'.$tableName.'`');
+
+		$savedKeys = [
+			'Non_unique',
+			'Key_name',
+			'Seq_in_index',
+		];
+
+		foreach($indexes as $index) {
+
+			$keyName = $index['Key_name'];
+
+			if(!array_key_exists($keyName, $tableIndexesArray)) {
+				$tableIndexesArray[$keyName] = [];
+			}
+
+			$tableIndexesArray[$keyName][] = array_intersect_key($index, array_flip($savedKeys));
+		}
+
+		foreach($tableIndexesArray as $keyName => &$values) {
+			usort($values, function($a, $b) {
+				return $a['Seq_in_index'] - $b['Seq_in_index'];
+			});
+		}
+
+		return $tableIndexesArray;
 	}
 
 	/**
