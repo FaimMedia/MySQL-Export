@@ -1,9 +1,8 @@
 #!/usr/bin/env php
 <?php
 
-use Phalcon\Db\Adapter\Pdo\Mysql;
-
 use FaimMedia\MySQLJSONExport\Export,
+	FaimMedia\MySQLJSONExport\Helper\Mysql,
     FaimMedia\MySQLJSONExport\Helper\Parameters;
 
 require dirname(__DIR__, 4) . '/vendor/autoload.php';

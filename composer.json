@@ -14,7 +14,6 @@
 
 	"require": {
 		"php": "7.*",
-		"ext-phalcon": "3.*",
 
 		"ext-pdo" : "*",
 		"ext-pdo_mysql" : "*"

@@ -4,8 +4,7 @@ namespace FaimMedia\MySQLJSONExport;
 
 use ExportException;
 
-use Phalcon\Db\Adapter\Pdo as PdoAdapter,
-    Phalcon\Db;
+use FaimMedia\MySQLJSONExport\Helper\Mysql;
 
 class Fetch {
 
@@ -20,9 +19,9 @@ class Export {
 	/**
 	 * Set required parameters
 	 */
-	public function __construct(PdoAdapter $db = null, string $folder = null) {
+	public function __construct(Mysql $db = null, string $folder = null) {
 
-		if($db instanceof PdoAdapter) {
+		if($db instanceof Mysql) {
 			$this->setDatabase($db);
 		}
 
@@ -34,13 +33,9 @@ class Export {
 	/**
 	 * Set database instance
 	 */
-	public function setDatabase(PdoAdapter $db): self {
-		if($db instanceof PdoAdapter) {
-
-			$this->_db = $db;
-
-			$this->_db->connect();
-		}
+	public function setDatabase(Mysql $db): self {
+		$this->_db = $db;
+		$this->_db->connect();
 
 		return $this;
 	}
@@ -48,7 +43,7 @@ class Export {
 	/**
 	 * Get database instance
 	 */
-	public function getDatabase(): PdoAdapter {
+	public function getDatabase(): Mysql {
 		return $this->_db;
 	}
 
