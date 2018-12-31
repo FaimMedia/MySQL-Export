@@ -9,6 +9,7 @@ use FaimMedia\MySQLJSONExport\Helper\Mysql;
 class Fetch {
 
 }
+use PDO;
 
 class Export {
 
