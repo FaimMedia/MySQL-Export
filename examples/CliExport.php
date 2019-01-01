@@ -23,7 +23,7 @@ $mysql = new Mysql([
 ]);
 
 $export = new Export($mysql);
+$export->setFolder(sys_get_temp_dir());
+$files = $export->writeJson();
 
-var_dump($export->getTriggersArray());
-
-var_dump($export->getTablesArray());
+var_dump($files);
