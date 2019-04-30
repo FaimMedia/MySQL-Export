@@ -1,0 +1,4465 @@
+{
+    "api_client": {
+        "details": {
+            "Engine": "InnoDB",
+            "Version": "10",
+            "Row_format": "Dynamic",
+            "Collation": "utf8_general_ci"
+        },
+        "syntax": "CREATE TABLE `api_client` ( `id` int(10) unsigned NOT NULL AUTO_INCREMENT, `client_secret` varchar(255) NOT NULL DEFAULT '', `client_name2` varchar(255) NOT NULL DEFAULT '', `active` tinyint(1) unsigned NOT NULL DEFAULT '1', `user_created` int(10) unsigned DEFAULT NULL, `client_name` varchar(255) NOT NULL DEFAULT '', `user_modified` int(10) DEFAULT NULL, `date_created` datetime DEFAULT NULL, `date_modified` time DEFAULT NULL, PRIMARY KEY (`id`), UNIQUE KEY `authorization_key` (`client_secret`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8",
+        "fields": {
+            "id": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "PRI",
+                "Default": null,
+                "Extra": "auto_increment"
+            },
+            "client_secret": {
+                "Type": "varchar(255)",
+                "Collation": "utf8_general_ci",
+                "Null": "NO",
+                "Key": "UNI",
+                "Default": "",
+                "Extra": ""
+            },
+            "client_name2": {
+                "Type": "varchar(255)",
+                "Collation": "utf8_general_ci",
+                "Null": "NO",
+                "Key": "",
+                "Default": "",
+                "Extra": ""
+            },
+            "active": {
+                "Type": "tinyint(1) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": "1",
+                "Extra": ""
+            },
+            "user_created": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "client_name": {
+                "Type": "varchar(255)",
+                "Collation": "utf8_general_ci",
+                "Null": "NO",
+                "Key": "",
+                "Default": "",
+                "Extra": ""
+            },
+            "user_modified": {
+                "Type": "int(10)",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_created": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_modified": {
+                "Type": "time",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            }
+        }
+    },
+    "article": {
+        "details": {
+            "Engine": "InnoDB",
+            "Version": "10",
+            "Row_format": "Dynamic",
+            "Collation": "utf8mb4_general_ci"
+        },
+        "syntax": "CREATE TABLE `article` ( `id` int(11) unsigned NOT NULL AUTO_INCREMENT, `title` varchar(255) DEFAULT NULL, `description` text, `vat_group_id` smallint(5) unsigned NOT NULL, `main_group_id` smallint(5) unsigned DEFAULT NULL, `post_group_id` smallint(5) unsigned DEFAULT NULL, `options` int(10) unsigned NOT NULL DEFAULT '0', `quantity` smallint(5) NOT NULL DEFAULT '1', `amount` decimal(5,2) NOT NULL DEFAULT '0.00', `user_created` int(10) unsigned DEFAULT NULL, `user_modified` int(10) unsigned DEFAULT NULL, `date_created` datetime DEFAULT NULL, `date_modified` datetime DEFAULT NULL, PRIMARY KEY (`id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
+        "fields": {
+            "id": {
+                "Type": "int(11) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "PRI",
+                "Default": null,
+                "Extra": "auto_increment"
+            },
+            "title": {
+                "Type": "varchar(255)",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "description": {
+                "Type": "text",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "vat_group_id": {
+                "Type": "smallint(5) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "main_group_id": {
+                "Type": "smallint(5) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "post_group_id": {
+                "Type": "smallint(5) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "options": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": "0",
+                "Extra": ""
+            },
+            "quantity": {
+                "Type": "smallint(5)",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": "1",
+                "Extra": ""
+            },
+            "amount": {
+                "Type": "decimal(5,2)",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": "0.00",
+                "Extra": ""
+            },
+            "user_created": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "user_modified": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_created": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_modified": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            }
+        }
+    },
+    "config": {
+        "details": {
+            "Engine": "InnoDB",
+            "Version": "10",
+            "Row_format": "Dynamic",
+            "Collation": "utf8_general_ci"
+        },
+        "syntax": "CREATE TABLE `config` ( `entity_id` smallint(5) unsigned NOT NULL, `module` char(20) NOT NULL, `name` char(30) NOT NULL, `language_id` tinyint(3) unsigned NOT NULL DEFAULT '0', `value` text NOT NULL, `json_encoded` tinyint(1) unsigned NOT NULL DEFAULT '0', `user_created` int(10) unsigned DEFAULT NULL, `user_modified` int(10) unsigned DEFAULT NULL, `date_created` datetime DEFAULT NULL, `date_modified` datetime DEFAULT NULL, PRIMARY KEY (`entity_id`,`module`,`name`,`language_id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8",
+        "fields": {
+            "entity_id": {
+                "Type": "smallint(5) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "PRI",
+                "Default": null,
+                "Extra": ""
+            },
+            "module": {
+                "Type": "char(20)",
+                "Collation": "utf8_general_ci",
+                "Null": "NO",
+                "Key": "PRI",
+                "Default": null,
+                "Extra": ""
+            },
+            "name": {
+                "Type": "char(30)",
+                "Collation": "utf8_general_ci",
+                "Null": "NO",
+                "Key": "PRI",
+                "Default": null,
+                "Extra": ""
+            },
+            "language_id": {
+                "Type": "tinyint(3) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "PRI",
+                "Default": "0",
+                "Extra": ""
+            },
+            "value": {
+                "Type": "text",
+                "Collation": "utf8_general_ci",
+                "Null": "NO",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "json_encoded": {
+                "Type": "tinyint(1) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": "0",
+                "Extra": ""
+            },
+            "user_created": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "user_modified": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_created": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_modified": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            }
+        }
+    },
+    "country": {
+        "details": {
+            "Engine": "InnoDB",
+            "Version": "10",
+            "Row_format": "Dynamic",
+            "Collation": "utf8mb4_general_ci"
+        },
+        "syntax": "CREATE TABLE `country` ( `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT, `code` char(2) NOT NULL DEFAULT '', `code3` char(3) DEFAULT NULL, `name` varchar(80) NOT NULL DEFAULT '', `icon` char(10) DEFAULT NULL, `phone_code` smallint(5) unsigned NOT NULL, `zipcode_pattern` varchar(255) DEFAULT NULL, `zipcode_example` varchar(255) DEFAULT NULL, `zipcode_format` varchar(255) DEFAULT NULL, `europe` tinyint(1) unsigned NOT NULL DEFAULT '0', `user_created` int(10) unsigned DEFAULT NULL, `user_modified` int(10) unsigned DEFAULT NULL, `date_created` datetime DEFAULT NULL, `date_modified` datetime DEFAULT NULL, PRIMARY KEY (`id`), UNIQUE KEY `iso` (`code`), UNIQUE KEY `name` (`name`), UNIQUE KEY `iso3` (`code3`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
+        "fields": {
+            "id": {
+                "Type": "smallint(5) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "PRI",
+                "Default": null,
+                "Extra": "auto_increment"
+            },
+            "code": {
+                "Type": "char(2)",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "NO",
+                "Key": "UNI",
+                "Default": "",
+                "Extra": ""
+            },
+            "code3": {
+                "Type": "char(3)",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "YES",
+                "Key": "UNI",
+                "Default": null,
+                "Extra": ""
+            },
+            "name": {
+                "Type": "varchar(80)",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "NO",
+                "Key": "UNI",
+                "Default": "",
+                "Extra": ""
+            },
+            "icon": {
+                "Type": "char(10)",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "phone_code": {
+                "Type": "smallint(5) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "zipcode_pattern": {
+                "Type": "varchar(255)",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "zipcode_example": {
+                "Type": "varchar(255)",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "zipcode_format": {
+                "Type": "varchar(255)",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "europe": {
+                "Type": "tinyint(1) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": "0",
+                "Extra": ""
+            },
+            "user_created": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "user_modified": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_created": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_modified": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            }
+        }
+    },
+    "customer": {
+        "details": {
+            "Engine": "InnoDB",
+            "Version": "10",
+            "Row_format": "Dynamic",
+            "Collation": "utf8mb4_general_ci"
+        },
+        "syntax": "CREATE TABLE `customer` ( `id` int(10) unsigned NOT NULL AUTO_INCREMENT, `customer_number` int(10) unsigned DEFAULT NULL, `name` varchar(255) NOT NULL DEFAULT '', `payment_method_id` smallint(5) unsigned NOT NULL, `user_created` int(10) unsigned DEFAULT NULL, `user_modified` int(10) unsigned DEFAULT NULL, `date_created` datetime DEFAULT NULL, `date_modified` datetime DEFAULT NULL, PRIMARY KEY (`id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
+        "fields": {
+            "id": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "PRI",
+                "Default": null,
+                "Extra": "auto_increment"
+            },
+            "customer_number": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "name": {
+                "Type": "varchar(255)",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "NO",
+                "Key": "",
+                "Default": "",
+                "Extra": ""
+            },
+            "payment_method_id": {
+                "Type": "smallint(5) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "user_created": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "user_modified": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_created": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_modified": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            }
+        }
+    },
+    "customer_address": {
+        "details": {
+            "Engine": "InnoDB",
+            "Version": "10",
+            "Row_format": "Dynamic",
+            "Collation": "utf8mb4_general_ci"
+        },
+        "syntax": "CREATE TABLE `customer_address` ( `customer_id` int(10) unsigned NOT NULL, `customer_department_id` int(10) unsigned NOT NULL DEFAULT '0', `address` varchar(255) NOT NULL DEFAULT '', `address_number` int(10) unsigned DEFAULT NULL, `address_number_suffix` char(20) DEFAULT NULL, `zipcode` char(10) DEFAULT NULL, `city` varchar(255) DEFAULT '', `country_id` tinyint(3) unsigned DEFAULT NULL, `phone_number` bigint(15) unsigned DEFAULT NULL, `email_address` varchar(255) DEFAULT NULL, `email_address_invoice` varchar(255) DEFAULT NULL, `coc_number` int(10) unsigned DEFAULT NULL, `vat_number` char(20) DEFAULT NULL, `user_created` int(10) unsigned DEFAULT NULL, `user_modified` int(10) unsigned DEFAULT NULL, `date_created` datetime DEFAULT NULL, `date_modified` datetime DEFAULT NULL, UNIQUE KEY `customer_id` (`customer_id`), KEY `customer_department_id` (`customer_department_id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
+        "fields": {
+            "customer_id": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "PRI",
+                "Default": null,
+                "Extra": ""
+            },
+            "customer_department_id": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "MUL",
+                "Default": "0",
+                "Extra": ""
+            },
+            "address": {
+                "Type": "varchar(255)",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "NO",
+                "Key": "",
+                "Default": "",
+                "Extra": ""
+            },
+            "address_number": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "address_number_suffix": {
+                "Type": "char(20)",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "zipcode": {
+                "Type": "char(10)",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "city": {
+                "Type": "varchar(255)",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": "",
+                "Extra": ""
+            },
+            "country_id": {
+                "Type": "tinyint(3) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "phone_number": {
+                "Type": "bigint(15) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "email_address": {
+                "Type": "varchar(255)",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "email_address_invoice": {
+                "Type": "varchar(255)",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "coc_number": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "vat_number": {
+                "Type": "char(20)",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "user_created": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "user_modified": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_created": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_modified": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            }
+        }
+    },
+    "customer_contact": {
+        "details": {
+            "Engine": "InnoDB",
+            "Version": "10",
+            "Row_format": "Dynamic",
+            "Collation": "utf8mb4_general_ci"
+        },
+        "syntax": "CREATE TABLE `customer_contact` ( `id` int(11) unsigned NOT NULL AUTO_INCREMENT, `customer_id` int(10) unsigned NOT NULL, `customer_department_id` int(10) unsigned DEFAULT NULL, `name_title` tinyint(1) unsigned NOT NULL DEFAULT '0', `name_first` char(30) DEFAULT NULL, `name_prefix` char(30) DEFAULT NULL, `name_last` varchar(255) NOT NULL DEFAULT '', `country_id` tinyint(3) unsigned DEFAULT NULL, `language_id` tinyint(3) unsigned NOT NULL, `phone_number` bigint(15) unsigned DEFAULT NULL, `email_address` varchar(255) DEFAULT NULL, `user_created` int(10) unsigned DEFAULT NULL, `user_modified` int(10) DEFAULT NULL, `date_created` datetime DEFAULT NULL, `date_modified` datetime DEFAULT NULL, PRIMARY KEY (`id`), KEY `customer_id` (`customer_id`), KEY `customer_department_id` (`customer_department_id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
+        "fields": {
+            "id": {
+                "Type": "int(11) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "PRI",
+                "Default": null,
+                "Extra": "auto_increment"
+            },
+            "customer_id": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "MUL",
+                "Default": null,
+                "Extra": ""
+            },
+            "customer_department_id": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "MUL",
+                "Default": null,
+                "Extra": ""
+            },
+            "name_title": {
+                "Type": "tinyint(1) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": "0",
+                "Extra": ""
+            },
+            "name_first": {
+                "Type": "char(30)",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "name_prefix": {
+                "Type": "char(30)",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "name_last": {
+                "Type": "varchar(255)",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "NO",
+                "Key": "",
+                "Default": "",
+                "Extra": ""
+            },
+            "country_id": {
+                "Type": "tinyint(3) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "language_id": {
+                "Type": "tinyint(3) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "phone_number": {
+                "Type": "bigint(15) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "email_address": {
+                "Type": "varchar(255)",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "user_created": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "user_modified": {
+                "Type": "int(10)",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_created": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_modified": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            }
+        }
+    },
+    "customer_department": {
+        "details": {
+            "Engine": "InnoDB",
+            "Version": "10",
+            "Row_format": "Dynamic",
+            "Collation": "utf8mb4_general_ci"
+        },
+        "syntax": "CREATE TABLE `customer_department` ( `id` int(10) unsigned NOT NULL AUTO_INCREMENT, `customer_id` int(10) unsigned NOT NULL, `name` varchar(255) NOT NULL DEFAULT '', `email_address` varchar(255) DEFAULT NULL, `language_id` tinyint(3) unsigned DEFAULT NULL, `user_created` int(10) unsigned DEFAULT NULL, `user_modified` int(10) DEFAULT NULL, `date_created` datetime DEFAULT NULL, `date_modified` datetime DEFAULT NULL, PRIMARY KEY (`id`), KEY `customer_id` (`customer_id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
+        "fields": {
+            "id": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "PRI",
+                "Default": null,
+                "Extra": "auto_increment"
+            },
+            "customer_id": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "MUL",
+                "Default": null,
+                "Extra": ""
+            },
+            "name": {
+                "Type": "varchar(255)",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "NO",
+                "Key": "",
+                "Default": "",
+                "Extra": ""
+            },
+            "email_address": {
+                "Type": "varchar(255)",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "language_id": {
+                "Type": "tinyint(3) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "user_created": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "user_modified": {
+                "Type": "int(10)",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_created": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_modified": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            }
+        }
+    },
+    "document": {
+        "details": {
+            "Engine": "InnoDB",
+            "Version": "10",
+            "Row_format": "Dynamic",
+            "Collation": "utf8mb4_general_ci"
+        },
+        "syntax": "CREATE TABLE `document` ( `id` int(11) unsigned NOT NULL AUTO_INCREMENT, `date` date DEFAULT NULL, `title` varchar(255) NOT NULL DEFAULT '', `description` text, `company` varchar(255) DEFAULT NULL, `reference` varchar(255) DEFAULT NULL, `user_created` int(10) unsigned DEFAULT NULL, `user_modified` int(10) unsigned DEFAULT NULL, `date_created` datetime DEFAULT NULL, `date_modified` datetime DEFAULT NULL, PRIMARY KEY (`id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
+        "fields": {
+            "id": {
+                "Type": "int(11) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "PRI",
+                "Default": null,
+                "Extra": "auto_increment"
+            },
+            "date": {
+                "Type": "date",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "title": {
+                "Type": "varchar(255)",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "NO",
+                "Key": "",
+                "Default": "",
+                "Extra": ""
+            },
+            "description": {
+                "Type": "text",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "company": {
+                "Type": "varchar(255)",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "reference": {
+                "Type": "varchar(255)",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "user_created": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "user_modified": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_created": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_modified": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            }
+        }
+    },
+    "document_label": {
+        "details": {
+            "Engine": "InnoDB",
+            "Version": "10",
+            "Row_format": "Dynamic",
+            "Collation": "utf8mb4_general_ci"
+        },
+        "syntax": "CREATE TABLE `document_label` ( `id` int(11) unsigned NOT NULL AUTO_INCREMENT, `name` varchar(255) NOT NULL DEFAULT '', `description` text NOT NULL, `user_created` int(10) DEFAULT NULL, `user_modified` int(10) DEFAULT NULL, `date_created` datetime DEFAULT NULL, `date_modified` datetime DEFAULT NULL, PRIMARY KEY (`id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
+        "fields": {
+            "id": {
+                "Type": "int(11) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "PRI",
+                "Default": null,
+                "Extra": "auto_increment"
+            },
+            "name": {
+                "Type": "varchar(255)",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "NO",
+                "Key": "",
+                "Default": "",
+                "Extra": ""
+            },
+            "description": {
+                "Type": "text",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "NO",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "user_created": {
+                "Type": "int(10)",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "user_modified": {
+                "Type": "int(10)",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_created": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_modified": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            }
+        }
+    },
+    "document_to_label": {
+        "details": {
+            "Engine": "InnoDB",
+            "Version": "10",
+            "Row_format": "Dynamic",
+            "Collation": "utf8mb4_general_ci"
+        },
+        "syntax": "CREATE TABLE `document_to_label` ( `document_id` int(10) unsigned NOT NULL, `document_label_id` int(10) unsigned NOT NULL, PRIMARY KEY (`document_id`,`document_label_id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
+        "fields": {
+            "document_id": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "PRI",
+                "Default": null,
+                "Extra": ""
+            },
+            "document_label_id": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "PRI",
+                "Default": null,
+                "Extra": ""
+            }
+        }
+    },
+    "document_to_upload": {
+        "details": {
+            "Engine": "InnoDB",
+            "Version": "10",
+            "Row_format": "Dynamic",
+            "Collation": "utf8mb4_general_ci"
+        },
+        "syntax": "CREATE TABLE `document_to_upload` ( `document_id` int(10) unsigned NOT NULL, `upload_id` int(10) unsigned NOT NULL, PRIMARY KEY (`document_id`,`upload_id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
+        "fields": {
+            "document_id": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "PRI",
+                "Default": null,
+                "Extra": ""
+            },
+            "upload_id": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "PRI",
+                "Default": null,
+                "Extra": ""
+            }
+        }
+    },
+    "entity": {
+        "details": {
+            "Engine": "InnoDB",
+            "Version": "10",
+            "Row_format": "Dynamic",
+            "Collation": "utf8mb4_general_ci"
+        },
+        "syntax": "CREATE TABLE `entity` ( `id` int(11) unsigned NOT NULL AUTO_INCREMENT, `code` char(30) NOT NULL DEFAULT '', `name` varchar(255) DEFAULT NULL, `user_created` int(10) unsigned DEFAULT NULL, `user_modified` int(10) unsigned DEFAULT NULL, `date_created` datetime DEFAULT NULL, `date_modified` datetime DEFAULT NULL, PRIMARY KEY (`id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
+        "fields": {
+            "id": {
+                "Type": "int(11) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "PRI",
+                "Default": null,
+                "Extra": "auto_increment"
+            },
+            "code": {
+                "Type": "char(30)",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "NO",
+                "Key": "",
+                "Default": "",
+                "Extra": ""
+            },
+            "name": {
+                "Type": "varchar(255)",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "user_created": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "user_modified": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_created": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_modified": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            }
+        }
+    },
+    "folio": {
+        "details": {
+            "Engine": "InnoDB",
+            "Version": "10",
+            "Row_format": "Dynamic",
+            "Collation": "utf8mb4_general_ci"
+        },
+        "syntax": "CREATE TABLE `folio` ( `id` int(11) NOT NULL AUTO_INCREMENT, `entity_id` smallint(5) unsigned NOT NULL, `customer_id` int(10) unsigned NOT NULL, `customer_department_id` int(10) unsigned DEFAULT NULL, `customer_contact_id` int(10) unsigned NOT NULL, `name` varchar(255) DEFAULT NULL, `description` text, `period_start` date DEFAULT NULL, `period_type` date DEFAULT NULL, `date_start` date DEFAULT NULL, `date_end` date DEFAULT NULL, `frequency_type` tinyint(3) unsigned NOT NULL DEFAULT '0', `vat_reversed` tinyint(1) NOT NULL DEFAULT '0', `hide_quantity` tinyint(1) unsigned NOT NULL DEFAULT '0', `show_contact_attention` tinyint(1) unsigned NOT NULL DEFAULT '1', `show_contact_reference` tinyint(1) unsigned NOT NULL DEFAULT '0', `reference` varchar(255) DEFAULT NULL, `active` tinyint(1) unsigned NOT NULL DEFAULT '1', `user_created` int(10) unsigned DEFAULT NULL, `user_modified` int(10) unsigned DEFAULT NULL, `date_created` datetime DEFAULT NULL, `date_modified` datetime DEFAULT NULL, PRIMARY KEY (`id`), KEY `customer_id` (`customer_id`), KEY `entity_id` (`entity_id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
+        "fields": {
+            "id": {
+                "Type": "int(11)",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "PRI",
+                "Default": null,
+                "Extra": "auto_increment"
+            },
+            "entity_id": {
+                "Type": "smallint(5) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "MUL",
+                "Default": null,
+                "Extra": ""
+            },
+            "customer_id": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "MUL",
+                "Default": null,
+                "Extra": ""
+            },
+            "customer_department_id": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "customer_contact_id": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "name": {
+                "Type": "varchar(255)",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "description": {
+                "Type": "text",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "period_start": {
+                "Type": "date",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "period_type": {
+                "Type": "date",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_start": {
+                "Type": "date",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_end": {
+                "Type": "date",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "frequency_type": {
+                "Type": "tinyint(3) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": "0",
+                "Extra": ""
+            },
+            "vat_reversed": {
+                "Type": "tinyint(1)",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": "0",
+                "Extra": ""
+            },
+            "hide_quantity": {
+                "Type": "tinyint(1) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": "0",
+                "Extra": ""
+            },
+            "show_contact_attention": {
+                "Type": "tinyint(1) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": "1",
+                "Extra": ""
+            },
+            "show_contact_reference": {
+                "Type": "tinyint(1) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": "0",
+                "Extra": ""
+            },
+            "reference": {
+                "Type": "varchar(255)",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "active": {
+                "Type": "tinyint(1) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": "1",
+                "Extra": ""
+            },
+            "user_created": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "user_modified": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_created": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_modified": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            }
+        }
+    },
+    "folio_line": {
+        "details": {
+            "Engine": "InnoDB",
+            "Version": "10",
+            "Row_format": "Dynamic",
+            "Collation": "utf8mb4_general_ci"
+        },
+        "syntax": "CREATE TABLE `folio_line` ( `id` int(10) unsigned NOT NULL AUTO_INCREMENT, `folio_id` int(10) unsigned NOT NULL, `article_id` int(10) unsigned NOT NULL, `title` varchar(255) NOT NULL DEFAULT '', `description` text, `quantity` decimal(7,2) NOT NULL DEFAULT '1.00', `amount` decimal(5,2) NOT NULL DEFAULT '0.00', `frequency_value` smallint(5) DEFAULT NULL, `frequency_type` tinyint(4) DEFAULT NULL, `period_start` date DEFAULT NULL, `date_next` date DEFAULT NULL, `date_last` datetime DEFAULT NULL, `sort_order` tinyint(1) NOT NULL DEFAULT '0', `user_created` int(10) unsigned DEFAULT NULL, `user_modified` int(10) unsigned DEFAULT NULL, `date_created` datetime DEFAULT NULL, `date_modified` datetime DEFAULT NULL, PRIMARY KEY (`id`), KEY `folio_id` (`folio_id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
+        "fields": {
+            "id": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "PRI",
+                "Default": null,
+                "Extra": "auto_increment"
+            },
+            "folio_id": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "MUL",
+                "Default": null,
+                "Extra": ""
+            },
+            "article_id": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "title": {
+                "Type": "varchar(255)",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "NO",
+                "Key": "",
+                "Default": "",
+                "Extra": ""
+            },
+            "description": {
+                "Type": "text",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "quantity": {
+                "Type": "decimal(7,2)",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": "1.00",
+                "Extra": ""
+            },
+            "amount": {
+                "Type": "decimal(5,2)",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": "0.00",
+                "Extra": ""
+            },
+            "frequency_value": {
+                "Type": "smallint(5)",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "frequency_type": {
+                "Type": "tinyint(4)",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "period_start": {
+                "Type": "date",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_next": {
+                "Type": "date",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_last": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "sort_order": {
+                "Type": "tinyint(1)",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": "0",
+                "Extra": ""
+            },
+            "user_created": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "user_modified": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_created": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_modified": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            }
+        }
+    },
+    "invoice": {
+        "details": {
+            "Engine": "InnoDB",
+            "Version": "10",
+            "Row_format": "Dynamic",
+            "Collation": "utf8_general_ci"
+        },
+        "syntax": "CREATE TABLE `invoice` ( `id` int(10) unsigned NOT NULL AUTO_INCREMENT, `entity_id` smallint(5) unsigned NOT NULL, `customer_id` int(10) unsigned NOT NULL, `customer_department_id` int(10) unsigned DEFAULT NULL, `customer_contact_id` int(10) unsigned NOT NULL, `secret_id` char(32) DEFAULT NULL, `invoice_number` int(10) unsigned DEFAULT NULL, `invoice_date` date DEFAULT NULL, `folio_id` int(10) unsigned DEFAULT NULL, `date_expire` date DEFAULT NULL, `total_gross` decimal(6,2) NOT NULL DEFAULT '0.00', `total_net` decimal(6,2) NOT NULL DEFAULT '0.00', `language_id` tinyint(3) unsigned NOT NULL, `vat_reversed` tinyint(1) unsigned NOT NULL DEFAULT '0', `hide_quantity` tinyint(1) unsigned NOT NULL DEFAULT '0', `paid_date` datetime DEFAULT NULL, `paid_amount` decimal(6,2) NOT NULL DEFAULT '0.00', `credit_amount` decimal(6,2) unsigned NOT NULL DEFAULT '0.00', `credit` tinyint(1) unsigned NOT NULL DEFAULT '0', `parent_invoice_id` int(10) unsigned DEFAULT NULL, `reminder_count` tinyint(3) unsigned DEFAULT '0', `payment_method_id` smallint(5) unsigned DEFAULT NULL, `show_contact_attention` tinyint(1) unsigned NOT NULL DEFAULT '1', `show_contact_reference` tinyint(1) unsigned NOT NULL DEFAULT '0', `reference` varchar(255) DEFAULT NULL, `user_created` int(10) unsigned DEFAULT NULL, `user_modified` int(10) unsigned DEFAULT NULL, `date_created` datetime DEFAULT NULL, `date_modified` datetime DEFAULT NULL, PRIMARY KEY (`id`), UNIQUE KEY `secret_id` (`secret_id`), UNIQUE KEY `invoice_number` (`entity_id`,`invoice_number`), KEY `customer` (`customer_id`,`customer_department_id`,`customer_contact_id`), KEY `entity_id` (`entity_id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8",
+        "fields": {
+            "id": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "PRI",
+                "Default": null,
+                "Extra": "auto_increment"
+            },
+            "entity_id": {
+                "Type": "smallint(5) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "MUL",
+                "Default": null,
+                "Extra": ""
+            },
+            "customer_id": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "MUL",
+                "Default": null,
+                "Extra": ""
+            },
+            "customer_department_id": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "customer_contact_id": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "secret_id": {
+                "Type": "char(32)",
+                "Collation": "utf8_general_ci",
+                "Null": "YES",
+                "Key": "UNI",
+                "Default": null,
+                "Extra": ""
+            },
+            "invoice_number": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "invoice_date": {
+                "Type": "date",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "folio_id": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_expire": {
+                "Type": "date",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "total_gross": {
+                "Type": "decimal(6,2)",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": "0.00",
+                "Extra": ""
+            },
+            "total_net": {
+                "Type": "decimal(6,2)",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": "0.00",
+                "Extra": ""
+            },
+            "language_id": {
+                "Type": "tinyint(3) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "vat_reversed": {
+                "Type": "tinyint(1) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": "0",
+                "Extra": ""
+            },
+            "hide_quantity": {
+                "Type": "tinyint(1) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": "0",
+                "Extra": ""
+            },
+            "paid_date": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "paid_amount": {
+                "Type": "decimal(6,2)",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": "0.00",
+                "Extra": ""
+            },
+            "credit_amount": {
+                "Type": "decimal(6,2) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": "0.00",
+                "Extra": ""
+            },
+            "credit": {
+                "Type": "tinyint(1) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": "0",
+                "Extra": ""
+            },
+            "parent_invoice_id": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "reminder_count": {
+                "Type": "tinyint(3) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": "0",
+                "Extra": ""
+            },
+            "payment_method_id": {
+                "Type": "smallint(5) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "show_contact_attention": {
+                "Type": "tinyint(1) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": "1",
+                "Extra": ""
+            },
+            "show_contact_reference": {
+                "Type": "tinyint(1) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": "0",
+                "Extra": ""
+            },
+            "reference": {
+                "Type": "varchar(255)",
+                "Collation": "utf8_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "user_created": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "user_modified": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_created": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_modified": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            }
+        }
+    },
+    "invoice_address": {
+        "details": {
+            "Engine": "InnoDB",
+            "Version": "10",
+            "Row_format": "Dynamic",
+            "Collation": "utf8mb4_general_ci"
+        },
+        "syntax": "CREATE TABLE `invoice_address` ( `invoice_id` int(10) unsigned NOT NULL, `company_name` varchar(255) DEFAULT NULL, `department_name` varchar(255) DEFAULT NULL, `contactperson_title` tinyint(1) unsigned NOT NULL DEFAULT '0', `contactperson_name_first` varchar(255) DEFAULT NULL, `contactperson_name_prefix` varchar(255) DEFAULT NULL, `contactperson_name_last` varchar(255) DEFAULT NULL, `address` varchar(255) DEFAULT NULL, `address_number` int(10) unsigned DEFAULT NULL, `address_number_suffix` char(30) DEFAULT NULL, `zipcode` char(10) DEFAULT NULL, `city` varchar(255) DEFAULT NULL, `country_id` smallint(5) unsigned NOT NULL, `vat_number` char(20) DEFAULT NULL, `user_created` int(10) DEFAULT NULL, `user_modified` int(10) DEFAULT NULL, `date_created` datetime DEFAULT NULL, `date_modified` datetime DEFAULT NULL, PRIMARY KEY (`invoice_id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
+        "fields": {
+            "invoice_id": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "PRI",
+                "Default": null,
+                "Extra": ""
+            },
+            "company_name": {
+                "Type": "varchar(255)",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "department_name": {
+                "Type": "varchar(255)",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "contactperson_title": {
+                "Type": "tinyint(1) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": "0",
+                "Extra": ""
+            },
+            "contactperson_name_first": {
+                "Type": "varchar(255)",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "contactperson_name_prefix": {
+                "Type": "varchar(255)",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "contactperson_name_last": {
+                "Type": "varchar(255)",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "address": {
+                "Type": "varchar(255)",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "address_number": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "address_number_suffix": {
+                "Type": "char(30)",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "zipcode": {
+                "Type": "char(10)",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "city": {
+                "Type": "varchar(255)",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "country_id": {
+                "Type": "smallint(5) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "vat_number": {
+                "Type": "char(20)",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "user_created": {
+                "Type": "int(10)",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "user_modified": {
+                "Type": "int(10)",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_created": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_modified": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            }
+        }
+    },
+    "invoice_line": {
+        "details": {
+            "Engine": "InnoDB",
+            "Version": "10",
+            "Row_format": "Dynamic",
+            "Collation": "utf8mb4_general_ci"
+        },
+        "syntax": "CREATE TABLE `invoice_line` ( `id` int(10) unsigned NOT NULL AUTO_INCREMENT, `invoice_id` int(10) unsigned NOT NULL, `article_id` int(10) unsigned DEFAULT NULL, `title` varchar(255) NOT NULL DEFAULT '', `description` text, `period_start` date DEFAULT NULL, `period_end` date DEFAULT NULL, `quantity` decimal(7,2) NOT NULL DEFAULT '1.00', `amount` decimal(6,2) DEFAULT NULL, `vat_rate` decimal(4,2) unsigned NOT NULL DEFAULT '0.00', `credit_quantity` decimal(7,2) unsigned NOT NULL DEFAULT '0.00', `credit_amount` decimal(6,2) unsigned NOT NULL DEFAULT '0.00', `separator` tinyint(1) unsigned NOT NULL DEFAULT '0', `indent` tinyint(1) unsigned NOT NULL DEFAULT '0', `sort_order` tinyint(3) NOT NULL DEFAULT '0', `user_created` int(10) unsigned DEFAULT NULL, `user_modified` int(10) unsigned DEFAULT NULL, `date_created` datetime DEFAULT NULL, `date_modified` datetime DEFAULT NULL, PRIMARY KEY (`id`), KEY `invoice_id` (`invoice_id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
+        "fields": {
+            "id": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "PRI",
+                "Default": null,
+                "Extra": "auto_increment"
+            },
+            "invoice_id": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "MUL",
+                "Default": null,
+                "Extra": ""
+            },
+            "article_id": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "title": {
+                "Type": "varchar(255)",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "NO",
+                "Key": "",
+                "Default": "",
+                "Extra": ""
+            },
+            "description": {
+                "Type": "text",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "period_start": {
+                "Type": "date",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "period_end": {
+                "Type": "date",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "quantity": {
+                "Type": "decimal(7,2)",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": "1.00",
+                "Extra": ""
+            },
+            "amount": {
+                "Type": "decimal(6,2)",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "vat_rate": {
+                "Type": "decimal(4,2) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": "0.00",
+                "Extra": ""
+            },
+            "credit_quantity": {
+                "Type": "decimal(7,2) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": "0.00",
+                "Extra": ""
+            },
+            "credit_amount": {
+                "Type": "decimal(6,2) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": "0.00",
+                "Extra": ""
+            },
+            "separator": {
+                "Type": "tinyint(1) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": "0",
+                "Extra": ""
+            },
+            "indent": {
+                "Type": "tinyint(1) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": "0",
+                "Extra": ""
+            },
+            "sort_order": {
+                "Type": "tinyint(3)",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": "0",
+                "Extra": ""
+            },
+            "user_created": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "user_modified": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_created": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_modified": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            }
+        }
+    },
+    "invoice_payment": {
+        "details": {
+            "Engine": "InnoDB",
+            "Version": "10",
+            "Row_format": "Dynamic",
+            "Collation": "utf8mb4_general_ci"
+        },
+        "syntax": "CREATE TABLE `invoice_payment` ( `id` int(10) unsigned NOT NULL AUTO_INCREMENT, `invoice_id` int(10) unsigned NOT NULL, `payment_method_id` int(10) unsigned NOT NULL, `amount` decimal(6,2) NOT NULL, `user_created` int(10) unsigned DEFAULT NULL, `user_modified` int(10) DEFAULT NULL, `date_payment` datetime DEFAULT NULL, `date_created` datetime DEFAULT NULL, `date_modified` datetime DEFAULT NULL, PRIMARY KEY (`id`), KEY `invoice_id` (`invoice_id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
+        "fields": {
+            "id": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "PRI",
+                "Default": null,
+                "Extra": "auto_increment"
+            },
+            "invoice_id": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "MUL",
+                "Default": null,
+                "Extra": ""
+            },
+            "payment_method_id": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "amount": {
+                "Type": "decimal(6,2)",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "user_created": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "user_modified": {
+                "Type": "int(10)",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_payment": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_created": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_modified": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            }
+        }
+    },
+    "invoice_period": {
+        "details": {
+            "Engine": null,
+            "Version": null,
+            "Row_format": null,
+            "Collation": null
+        },
+        "syntax": "CREATE VIEW `invoice_period` AS select year(`i`.`invoice_date`) AS `year`,quarter(`i`.`invoice_date`) AS `quarter`,`il`.`vat_rate` AS `vat_rate`,cast(sum(((`il`.`amount` * `il`.`quantity`) * ((`il`.`vat_rate` / 100) + 1))) as decimal(7,2)) AS `total_gross`,cast(sum((`il`.`amount` * `il`.`quantity`)) as decimal(7,2)) AS `total_net`,cast(sum(((`il`.`amount` * `il`.`quantity`) * (`il`.`vat_rate` / 100))) as decimal(7,2)) AS `total_vat` from (`invoice_line` `il` join `invoice` `i` on((`il`.`invoice_id` = `i`.`id`))) group by concat(quarter(`i`.`invoice_date`),'-',year(`i`.`invoice_date`)),`il`.`vat_rate` order by `year`,`quarter`",
+        "fields": {
+            "year": {
+                "Type": "int(4)",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "quarter": {
+                "Type": "int(1)",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "vat_rate": {
+                "Type": "decimal(4,2) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": "0.00",
+                "Extra": ""
+            },
+            "total_gross": {
+                "Type": "decimal(7,2)",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "total_net": {
+                "Type": "decimal(7,2)",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "total_vat": {
+                "Type": "decimal(7,2)",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            }
+        }
+    },
+    "invoice_send": {
+        "details": {
+            "Engine": "InnoDB",
+            "Version": "10",
+            "Row_format": "Dynamic",
+            "Collation": "utf8mb4_general_ci"
+        },
+        "syntax": "CREATE TABLE `invoice_send` ( `id` int(10) unsigned NOT NULL AUTO_INCREMENT, `invoice_id` int(10) unsigned NOT NULL, `secret_id` char(16) NOT NULL, `email_address` varchar(255) NOT NULL DEFAULT '', `seen_count` smallint(5) unsigned NOT NULL DEFAULT '0', `reminder_count` smallint(5) NOT NULL DEFAULT '0', `user_created` int(10) unsigned DEFAULT NULL, `user_modified` int(10) unsigned DEFAULT NULL, `date_created` datetime DEFAULT NULL, `date_modified` datetime DEFAULT NULL, PRIMARY KEY (`id`), KEY `invoice_id` (`invoice_id`), KEY `secret_id` (`secret_id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
+        "fields": {
+            "id": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "PRI",
+                "Default": null,
+                "Extra": "auto_increment"
+            },
+            "invoice_id": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "MUL",
+                "Default": null,
+                "Extra": ""
+            },
+            "secret_id": {
+                "Type": "char(16)",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "NO",
+                "Key": "MUL",
+                "Default": null,
+                "Extra": ""
+            },
+            "email_address": {
+                "Type": "varchar(255)",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "NO",
+                "Key": "",
+                "Default": "",
+                "Extra": ""
+            },
+            "seen_count": {
+                "Type": "smallint(5) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": "0",
+                "Extra": ""
+            },
+            "reminder_count": {
+                "Type": "smallint(5)",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": "0",
+                "Extra": ""
+            },
+            "user_created": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "user_modified": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_created": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_modified": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            }
+        }
+    },
+    "invoice_statistic_month": {
+        "details": {
+            "Engine": null,
+            "Version": null,
+            "Row_format": null,
+            "Collation": null
+        },
+        "syntax": "CREATE VIEW `invoice_statistic_month` AS select year(`i`.`invoice_date`) AS `year`,month(`i`.`invoice_date`) AS `month`,quarter(`i`.`invoice_date`) AS `quarter`,`il`.`vat_rate` AS `vat_percentage`,cast(sum(((`il`.`amount` * `il`.`quantity`) * ((`il`.`vat_rate` / 100) + 1))) as decimal(7,2)) AS `total_gross`,cast(sum((`il`.`amount` * `il`.`quantity`)) as decimal(7,2)) AS `total_net`,cast(sum(((`il`.`amount` * `il`.`quantity`) * (`il`.`vat_rate` / 100))) as decimal(7,2)) AS `total_vat` from (`invoice_line` `il` join `invoice` `i` on((`il`.`invoice_id` = `i`.`id`))) group by concat(year(`i`.`invoice_date`),'-',month(`i`.`invoice_date`)),`il`.`vat_rate` order by `year`,`month`",
+        "fields": {
+            "year": {
+                "Type": "int(4)",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "month": {
+                "Type": "int(2)",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "quarter": {
+                "Type": "int(1)",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "vat_percentage": {
+                "Type": "decimal(4,2) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": "0.00",
+                "Extra": ""
+            },
+            "total_gross": {
+                "Type": "decimal(7,2)",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "total_net": {
+                "Type": "decimal(7,2)",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "total_vat": {
+                "Type": "decimal(7,2)",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            }
+        }
+    },
+    "language": {
+        "details": {
+            "Engine": "InnoDB",
+            "Version": "10",
+            "Row_format": "Dynamic",
+            "Collation": "utf8mb4_general_ci"
+        },
+        "syntax": "CREATE TABLE `language` ( `id` tinyint(3) unsigned NOT NULL AUTO_INCREMENT, `icon` char(20) DEFAULT NULL, `name` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT '', `code` char(2) CHARACTER SET utf8 DEFAULT NULL, `accept_locale` char(32) CHARACTER SET utf8 DEFAULT NULL, `system_locale` char(32) CHARACTER SET utf8 DEFAULT NULL, `href_lang` char(30) CHARACTER SET utf8 DEFAULT NULL, `directory` char(5) CHARACTER SET utf8 DEFAULT NULL, `directory_fallback` char(5) CHARACTER SET utf8 DEFAULT NULL, `mollie_code` char(5) DEFAULT NULL, `status` tinyint(1) unsigned NOT NULL DEFAULT '1', `visible` tinyint(1) unsigned DEFAULT '1', `sort_order` tinyint(2) NOT NULL DEFAULT '0', `user_created` int(10) unsigned DEFAULT NULL, `user_modified` int(10) unsigned DEFAULT NULL, `date_created` datetime DEFAULT NULL, `date_modified` datetime DEFAULT NULL, PRIMARY KEY (`id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
+        "fields": {
+            "id": {
+                "Type": "tinyint(3) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "PRI",
+                "Default": null,
+                "Extra": "auto_increment"
+            },
+            "icon": {
+                "Type": "char(20)",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "name": {
+                "Type": "varchar(255)",
+                "Collation": "utf8_general_ci",
+                "Null": "NO",
+                "Key": "",
+                "Default": "",
+                "Extra": ""
+            },
+            "code": {
+                "Type": "char(2)",
+                "Collation": "utf8_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "accept_locale": {
+                "Type": "char(32)",
+                "Collation": "utf8_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "system_locale": {
+                "Type": "char(32)",
+                "Collation": "utf8_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "href_lang": {
+                "Type": "char(30)",
+                "Collation": "utf8_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "directory": {
+                "Type": "char(5)",
+                "Collation": "utf8_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "directory_fallback": {
+                "Type": "char(5)",
+                "Collation": "utf8_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "mollie_code": {
+                "Type": "char(5)",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "status": {
+                "Type": "tinyint(1) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": "1",
+                "Extra": ""
+            },
+            "visible": {
+                "Type": "tinyint(1) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": "1",
+                "Extra": ""
+            },
+            "sort_order": {
+                "Type": "tinyint(2)",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": "0",
+                "Extra": ""
+            },
+            "user_created": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "user_modified": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_created": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_modified": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            }
+        }
+    },
+    "payment_method": {
+        "details": {
+            "Engine": "InnoDB",
+            "Version": "10",
+            "Row_format": "Dynamic",
+            "Collation": "utf8_general_ci"
+        },
+        "syntax": "CREATE TABLE `payment_method` ( `id` int(10) unsigned NOT NULL AUTO_INCREMENT, `name` varchar(255) NOT NULL DEFAULT '', `image` varchar(255) DEFAULT NULL, `mollie_id` char(20) DEFAULT NULL, `issuer` char(20) DEFAULT NULL, `direct_debit` tinyint(1) unsigned DEFAULT '0', `fee_value` double(4,2) unsigned DEFAULT NULL, `active` tinyint(1) unsigned NOT NULL DEFAULT '1', `visible` tinyint(1) unsigned NOT NULL DEFAULT '1', `sort_order` tinyint(3) NOT NULL DEFAULT '0', `user_created` int(10) unsigned DEFAULT NULL, `user_modified` int(10) unsigned DEFAULT NULL, `date_created` datetime DEFAULT NULL, `date_modified` datetime DEFAULT NULL, PRIMARY KEY (`id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8",
+        "fields": {
+            "id": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "PRI",
+                "Default": null,
+                "Extra": "auto_increment"
+            },
+            "name": {
+                "Type": "varchar(255)",
+                "Collation": "utf8_general_ci",
+                "Null": "NO",
+                "Key": "",
+                "Default": "",
+                "Extra": ""
+            },
+            "image": {
+                "Type": "varchar(255)",
+                "Collation": "utf8_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "mollie_id": {
+                "Type": "char(20)",
+                "Collation": "utf8_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "issuer": {
+                "Type": "char(20)",
+                "Collation": "utf8_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "direct_debit": {
+                "Type": "tinyint(1) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": "0",
+                "Extra": ""
+            },
+            "fee_value": {
+                "Type": "double(4,2) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "active": {
+                "Type": "tinyint(1) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": "1",
+                "Extra": ""
+            },
+            "visible": {
+                "Type": "tinyint(1) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": "1",
+                "Extra": ""
+            },
+            "sort_order": {
+                "Type": "tinyint(3)",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": "0",
+                "Extra": ""
+            },
+            "user_created": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "user_modified": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_created": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_modified": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            }
+        }
+    },
+    "payment_method_condition": {
+        "details": {
+            "Engine": "InnoDB",
+            "Version": "10",
+            "Row_format": "Dynamic",
+            "Collation": "utf8mb4_general_ci"
+        },
+        "syntax": "CREATE TABLE `payment_method_condition` ( `payment_method_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT, `language_id` tinyint(3) unsigned NOT NULL, `condition` text NOT NULL, `user_created` int(10) unsigned DEFAULT NULL, `user_modified` int(10) DEFAULT NULL, `date_created` datetime DEFAULT NULL, `date_modified` datetime DEFAULT NULL, PRIMARY KEY (`payment_method_id`), UNIQUE KEY `payment_method_id` (`payment_method_id`,`language_id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
+        "fields": {
+            "payment_method_id": {
+                "Type": "smallint(5) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "PRI",
+                "Default": null,
+                "Extra": "auto_increment"
+            },
+            "language_id": {
+                "Type": "tinyint(3) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "condition": {
+                "Type": "text",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "NO",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "user_created": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "user_modified": {
+                "Type": "int(10)",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_created": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_modified": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            }
+        }
+    },
+    "purchase": {
+        "details": {
+            "Engine": "InnoDB",
+            "Version": "10",
+            "Row_format": "Dynamic",
+            "Collation": "utf8mb4_general_ci"
+        },
+        "syntax": "CREATE TABLE `purchase` ( `id` int(10) unsigned NOT NULL AUTO_INCREMENT, `invoice_date` date DEFAULT NULL, `description` text, `company` varchar(255) DEFAULT NULL, `reference` varchar(255) DEFAULT NULL, `hard_copy` tinyint(1) unsigned NOT NULL DEFAULT '0', `vat_shifted` tinyint(1) unsigned NOT NULL DEFAULT '0', `total_net` decimal(7,2) NOT NULL DEFAULT '0.00', `total_gross` decimal(7,2) NOT NULL DEFAULT '0.00', `total_no_vat` decimal(7,2) NOT NULL DEFAULT '0.00', `user_created` int(10) unsigned DEFAULT NULL, `user_modified` int(10) unsigned DEFAULT NULL, `date_created` datetime DEFAULT NULL, `date_modified` datetime DEFAULT NULL, PRIMARY KEY (`id`), KEY `invoice_date` (`invoice_date`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
+        "fields": {
+            "id": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "PRI",
+                "Default": null,
+                "Extra": "auto_increment"
+            },
+            "invoice_date": {
+                "Type": "date",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "MUL",
+                "Default": null,
+                "Extra": ""
+            },
+            "description": {
+                "Type": "text",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "company": {
+                "Type": "varchar(255)",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "reference": {
+                "Type": "varchar(255)",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "hard_copy": {
+                "Type": "tinyint(1) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": "0",
+                "Extra": ""
+            },
+            "vat_shifted": {
+                "Type": "tinyint(1) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": "0",
+                "Extra": ""
+            },
+            "total_net": {
+                "Type": "decimal(7,2)",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": "0.00",
+                "Extra": ""
+            },
+            "total_gross": {
+                "Type": "decimal(7,2)",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": "0.00",
+                "Extra": ""
+            },
+            "total_no_vat": {
+                "Type": "decimal(7,2)",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": "0.00",
+                "Extra": ""
+            },
+            "user_created": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "user_modified": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_created": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_modified": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            }
+        }
+    },
+    "purchase_amount": {
+        "details": {
+            "Engine": "InnoDB",
+            "Version": "10",
+            "Row_format": "Dynamic",
+            "Collation": "utf8mb4_general_ci"
+        },
+        "syntax": "CREATE TABLE `purchase_amount` ( `id` int(10) unsigned NOT NULL AUTO_INCREMENT, `purchase_id` int(10) unsigned NOT NULL, `vat_group_id` smallint(5) unsigned NOT NULL, `vat_percentage` double(4,2) NOT NULL DEFAULT '0.00', `amount` decimal(7,2) NOT NULL DEFAULT '0.00', `amount_gross` decimal(7,2) NOT NULL DEFAULT '0.00', `user_created` int(10) unsigned DEFAULT NULL, `user_modified` int(10) unsigned DEFAULT NULL, `date_created` datetime DEFAULT NULL, `date_modified` datetime DEFAULT NULL, PRIMARY KEY (`id`), UNIQUE KEY `purchase_id` (`purchase_id`,`vat_group_id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
+        "fields": {
+            "id": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "PRI",
+                "Default": null,
+                "Extra": "auto_increment"
+            },
+            "purchase_id": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "MUL",
+                "Default": null,
+                "Extra": ""
+            },
+            "vat_group_id": {
+                "Type": "smallint(5) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "vat_percentage": {
+                "Type": "double(4,2)",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": "0.00",
+                "Extra": ""
+            },
+            "amount": {
+                "Type": "decimal(7,2)",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": "0.00",
+                "Extra": ""
+            },
+            "amount_gross": {
+                "Type": "decimal(7,2)",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": "0.00",
+                "Extra": ""
+            },
+            "user_created": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "user_modified": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_created": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_modified": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            }
+        }
+    },
+    "purchase_period": {
+        "details": {
+            "Engine": null,
+            "Version": null,
+            "Row_format": null,
+            "Collation": null
+        },
+        "syntax": "CREATE VIEW `purchase_period` AS select year(`p`.`invoice_date`) AS `year`,quarter(`p`.`invoice_date`) AS `quarter`,sum(`pa`.`amount_gross`) AS `total_gross`,sum(`pa`.`amount`) AS `total_net`,sum((`pa`.`amount_gross` - `pa`.`amount`)) AS `total_vat`,`pa`.`vat_percentage` AS `vat_percentage` from (`purchase_amount` `pa` join `purchase` `p` on((`pa`.`purchase_id` = `p`.`id`))) group by concat(quarter(`p`.`invoice_date`),'-',year(`p`.`invoice_date`)),`pa`.`vat_percentage` order by `year`,`quarter`",
+        "fields": {
+            "year": {
+                "Type": "int(4)",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "quarter": {
+                "Type": "int(1)",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "total_gross": {
+                "Type": "decimal(29,2)",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "total_net": {
+                "Type": "decimal(29,2)",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "total_vat": {
+                "Type": "decimal(30,2)",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "vat_percentage": {
+                "Type": "double(4,2)",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": "0.00",
+                "Extra": ""
+            }
+        }
+    },
+    "purchase_statistic_month": {
+        "details": {
+            "Engine": null,
+            "Version": null,
+            "Row_format": null,
+            "Collation": null
+        },
+        "syntax": "CREATE VIEW `purchase_statistic_month` AS select year(`p`.`invoice_date`) AS `year`,month(`p`.`invoice_date`) AS `month`,quarter(`p`.`invoice_date`) AS `quarter`,`pa`.`vat_percentage` AS `vat_percentage`,sum(`pa`.`amount_gross`) AS `total_gross`,sum(`pa`.`amount`) AS `total_net`,sum((`pa`.`amount_gross` - `pa`.`amount`)) AS `total_vat` from (`purchase_amount` `pa` join `purchase` `p` on((`pa`.`purchase_id` = `p`.`id`))) group by concat(year(`p`.`invoice_date`),'-',month(`p`.`invoice_date`)),`pa`.`vat_percentage` order by `year`,`month`",
+        "fields": {
+            "year": {
+                "Type": "int(4)",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "month": {
+                "Type": "int(2)",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "quarter": {
+                "Type": "int(1)",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "vat_percentage": {
+                "Type": "double(4,2)",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": "0.00",
+                "Extra": ""
+            },
+            "total_gross": {
+                "Type": "decimal(29,2)",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "total_net": {
+                "Type": "decimal(29,2)",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "total_vat": {
+                "Type": "decimal(30,2)",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            }
+        }
+    },
+    "purchase_to_upload": {
+        "details": {
+            "Engine": "InnoDB",
+            "Version": "10",
+            "Row_format": "Dynamic",
+            "Collation": "utf8mb4_general_ci"
+        },
+        "syntax": "CREATE TABLE `purchase_to_upload` ( `purchase_id` int(10) unsigned NOT NULL, `upload_id` int(10) unsigned NOT NULL, PRIMARY KEY (`purchase_id`,`upload_id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
+        "fields": {
+            "purchase_id": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "PRI",
+                "Default": null,
+                "Extra": ""
+            },
+            "upload_id": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "PRI",
+                "Default": null,
+                "Extra": ""
+            }
+        }
+    },
+    "quotation": {
+        "details": {
+            "Engine": "InnoDB",
+            "Version": "10",
+            "Row_format": "Dynamic",
+            "Collation": "utf8mb4_general_ci"
+        },
+        "syntax": "CREATE TABLE `quotation` ( `id` int(10) unsigned NOT NULL AUTO_INCREMENT, `customer_id` int(10) unsigned NOT NULL, `customer_department_id` int(10) unsigned DEFAULT NULL, `customer_contact_id` int(10) unsigned DEFAULT NULL, `quotation_number` int(10) unsigned DEFAULT NULL, `quotation_number_revision` smallint(3) unsigned DEFAULT NULL, `quotation_date` date DEFAULT NULL, `name` varchar(255) NOT NULL, `description` text, `valid_value` tinyint(3) unsigned DEFAULT NULL, `valid_type` tinyint(1) unsigned DEFAULT NULL, `show_attention` tinyint(1) unsigned DEFAULT '1', `user_created` int(10) unsigned DEFAULT NULL, `user_modified` int(10) unsigned DEFAULT NULL, `date_created` datetime DEFAULT NULL, `date_modified` datetime DEFAULT NULL, PRIMARY KEY (`id`), UNIQUE KEY `quotation_number` (`quotation_number`,`quotation_number_revision`), KEY `quotation_date` (`quotation_date`), KEY `customer_id` (`customer_id`,`customer_department_id`,`customer_contact_id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
+        "fields": {
+            "id": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "PRI",
+                "Default": null,
+                "Extra": "auto_increment"
+            },
+            "customer_id": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "MUL",
+                "Default": null,
+                "Extra": ""
+            },
+            "customer_department_id": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "customer_contact_id": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "quotation_number": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "MUL",
+                "Default": null,
+                "Extra": ""
+            },
+            "quotation_number_revision": {
+                "Type": "smallint(3) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "quotation_date": {
+                "Type": "date",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "MUL",
+                "Default": null,
+                "Extra": ""
+            },
+            "name": {
+                "Type": "varchar(255)",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "NO",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "description": {
+                "Type": "text",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "valid_value": {
+                "Type": "tinyint(3) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "valid_type": {
+                "Type": "tinyint(1) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "show_attention": {
+                "Type": "tinyint(1) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": "1",
+                "Extra": ""
+            },
+            "user_created": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "user_modified": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_created": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_modified": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            }
+        }
+    },
+    "quotation_address": {
+        "details": {
+            "Engine": "InnoDB",
+            "Version": "10",
+            "Row_format": "Dynamic",
+            "Collation": "utf8mb4_general_ci"
+        },
+        "syntax": "CREATE TABLE `quotation_address` ( `quotation_id` int(10) unsigned NOT NULL, `company_name` varchar(255) DEFAULT NULL, `contactperson_name_title` tinyint(1) unsigned NOT NULL DEFAULT '0', `contactperson_name_first` varchar(255) DEFAULT NULL, `contactperson_name_prefix` varchar(255) DEFAULT NULL, `contactperson_name_last` varchar(255) DEFAULT NULL, `address` varchar(255) DEFAULT NULL, `address_number` int(10) unsigned DEFAULT NULL, `address_number_suffix` char(30) DEFAULT NULL, `zipcode` char(30) DEFAULT NULL, `city` varchar(255) DEFAULT NULL, `country_id` smallint(5) unsigned NOT NULL, `user_created` int(10) unsigned DEFAULT NULL, `user_modified` int(10) unsigned DEFAULT NULL, `date_created` datetime DEFAULT NULL, `date_modified` datetime DEFAULT NULL, PRIMARY KEY (`quotation_id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
+        "fields": {
+            "quotation_id": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "PRI",
+                "Default": null,
+                "Extra": ""
+            },
+            "company_name": {
+                "Type": "varchar(255)",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "contactperson_name_title": {
+                "Type": "tinyint(1) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": "0",
+                "Extra": ""
+            },
+            "contactperson_name_first": {
+                "Type": "varchar(255)",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "contactperson_name_prefix": {
+                "Type": "varchar(255)",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "contactperson_name_last": {
+                "Type": "varchar(255)",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "address": {
+                "Type": "varchar(255)",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "address_number": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "address_number_suffix": {
+                "Type": "char(30)",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "zipcode": {
+                "Type": "char(30)",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "city": {
+                "Type": "varchar(255)",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "country_id": {
+                "Type": "smallint(5) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "user_created": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "user_modified": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_created": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_modified": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            }
+        }
+    },
+    "quotation_group": {
+        "details": {
+            "Engine": "InnoDB",
+            "Version": "10",
+            "Row_format": "Dynamic",
+            "Collation": "utf8mb4_general_ci"
+        },
+        "syntax": "CREATE TABLE `quotation_group` ( `id` int(10) unsigned NOT NULL AUTO_INCREMENT, `quotation_id` int(10) unsigned NOT NULL, `title` varchar(255) DEFAULT NULL, `options` smallint(5) NOT NULL DEFAULT '1', `sort_order` tinyint(3) NOT NULL DEFAULT '0', `user_created` int(10) unsigned DEFAULT NULL, `user_modified` int(10) unsigned DEFAULT NULL, `date_created` datetime DEFAULT NULL, `date_modified` datetime DEFAULT NULL, PRIMARY KEY (`id`), KEY `quotation_id` (`quotation_id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
+        "fields": {
+            "id": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "PRI",
+                "Default": null,
+                "Extra": "auto_increment"
+            },
+            "quotation_id": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "MUL",
+                "Default": null,
+                "Extra": ""
+            },
+            "title": {
+                "Type": "varchar(255)",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "options": {
+                "Type": "smallint(5)",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": "1",
+                "Extra": ""
+            },
+            "sort_order": {
+                "Type": "tinyint(3)",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": "0",
+                "Extra": ""
+            },
+            "user_created": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "user_modified": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_created": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_modified": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            }
+        }
+    },
+    "quotation_group_line": {
+        "details": {
+            "Engine": "InnoDB",
+            "Version": "10",
+            "Row_format": "Dynamic",
+            "Collation": "utf8mb4_general_ci"
+        },
+        "syntax": "CREATE TABLE `quotation_group_line` ( `id` int(10) unsigned NOT NULL AUTO_INCREMENT, `quotation_group_id` int(10) unsigned NOT NULL, `article_id` int(10) unsigned NOT NULL, `title` varchar(255) NOT NULL DEFAULT '', `description` text, `quantity` smallint(5) unsigned NOT NULL DEFAULT '1', `amount` decimal(6,2) DEFAULT NULL, `amount_included` tinyint(1) unsigned NOT NULL DEFAULT '0', `spacer` tinyint(1) unsigned NOT NULL DEFAULT '0', `separator` tinyint(1) unsigned NOT NULL DEFAULT '0', `indent` tinyint(1) unsigned NOT NULL DEFAULT '0', `sort_order` tinyint(3) NOT NULL DEFAULT '0', `user_created` int(10) unsigned DEFAULT NULL, `user_modified` int(10) unsigned DEFAULT NULL, `date_created` datetime DEFAULT NULL, `date_modified` datetime DEFAULT NULL, PRIMARY KEY (`id`), KEY `quotation_group_id` (`quotation_group_id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
+        "fields": {
+            "id": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "PRI",
+                "Default": null,
+                "Extra": "auto_increment"
+            },
+            "quotation_group_id": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "MUL",
+                "Default": null,
+                "Extra": ""
+            },
+            "article_id": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "title": {
+                "Type": "varchar(255)",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "NO",
+                "Key": "",
+                "Default": "",
+                "Extra": ""
+            },
+            "description": {
+                "Type": "text",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "quantity": {
+                "Type": "smallint(5) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": "1",
+                "Extra": ""
+            },
+            "amount": {
+                "Type": "decimal(6,2)",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "amount_included": {
+                "Type": "tinyint(1) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": "0",
+                "Extra": ""
+            },
+            "spacer": {
+                "Type": "tinyint(1) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": "0",
+                "Extra": ""
+            },
+            "separator": {
+                "Type": "tinyint(1) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": "0",
+                "Extra": ""
+            },
+            "indent": {
+                "Type": "tinyint(1) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": "0",
+                "Extra": ""
+            },
+            "sort_order": {
+                "Type": "tinyint(3)",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": "0",
+                "Extra": ""
+            },
+            "user_created": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "user_modified": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_created": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_modified": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            }
+        }
+    },
+    "transaction": {
+        "details": {
+            "Engine": "InnoDB",
+            "Version": "10",
+            "Row_format": "Dynamic",
+            "Collation": "utf8mb4_general_ci"
+        },
+        "syntax": "CREATE TABLE `transaction` ( `id` int(10) unsigned NOT NULL AUTO_INCREMENT, `client_id` smallint(10) unsigned NOT NULL, `transaction_reference` varchar(100) NOT NULL DEFAULT '', `transaction_date` date DEFAULT NULL, `valuta_date` date DEFAULT NULL, `account_iban_number` varchar(100) DEFAULT NULL, `contra_account_iban_number` varchar(100) DEFAULT NULL, `contra_account_name` varchar(255) DEFAULT NULL, `description` text, `amount` decimal(7,2) NOT NULL DEFAULT '0.00', `no_invoice` tinyint(1) NOT NULL DEFAULT '0', `user_created` int(10) unsigned DEFAULT NULL, `user_modified` int(10) unsigned DEFAULT NULL, `date_created` datetime DEFAULT NULL, `date_modified` datetime DEFAULT NULL, PRIMARY KEY (`id`), UNIQUE KEY `client_id` (`client_id`,`transaction_reference`), KEY `transaction_date` (`transaction_date`), KEY `valuta_date` (`valuta_date`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
+        "fields": {
+            "id": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "PRI",
+                "Default": null,
+                "Extra": "auto_increment"
+            },
+            "client_id": {
+                "Type": "smallint(10) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "MUL",
+                "Default": null,
+                "Extra": ""
+            },
+            "transaction_reference": {
+                "Type": "varchar(100)",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "NO",
+                "Key": "",
+                "Default": "",
+                "Extra": ""
+            },
+            "transaction_date": {
+                "Type": "date",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "MUL",
+                "Default": null,
+                "Extra": ""
+            },
+            "valuta_date": {
+                "Type": "date",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "MUL",
+                "Default": null,
+                "Extra": ""
+            },
+            "account_iban_number": {
+                "Type": "varchar(100)",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "contra_account_iban_number": {
+                "Type": "varchar(100)",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "contra_account_name": {
+                "Type": "varchar(255)",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "description": {
+                "Type": "text",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "amount": {
+                "Type": "decimal(7,2)",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": "0.00",
+                "Extra": ""
+            },
+            "no_invoice": {
+                "Type": "tinyint(1)",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": "0",
+                "Extra": ""
+            },
+            "user_created": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "user_modified": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_created": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_modified": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            }
+        }
+    },
+    "transaction_to_invoice": {
+        "details": {
+            "Engine": "InnoDB",
+            "Version": "10",
+            "Row_format": "Dynamic",
+            "Collation": "utf8_general_ci"
+        },
+        "syntax": "CREATE TABLE `transaction_to_invoice` ( `transaction_id` int(10) unsigned NOT NULL, `invoice_id` int(10) unsigned NOT NULL, PRIMARY KEY (`transaction_id`,`invoice_id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8",
+        "fields": {
+            "transaction_id": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "PRI",
+                "Default": null,
+                "Extra": ""
+            },
+            "invoice_id": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "PRI",
+                "Default": null,
+                "Extra": ""
+            }
+        }
+    },
+    "transaction_to_purchase": {
+        "details": {
+            "Engine": "InnoDB",
+            "Version": "10",
+            "Row_format": "Dynamic",
+            "Collation": "utf8_general_ci"
+        },
+        "syntax": "CREATE TABLE `transaction_to_purchase` ( `transaction_id` int(10) unsigned NOT NULL, `purchase_id` int(10) unsigned NOT NULL, `user_created` int(10) unsigned DEFAULT NULL, `user_modified` int(10) unsigned DEFAULT NULL, `date_created` datetime DEFAULT NULL, `date_modified` datetime DEFAULT NULL, PRIMARY KEY (`transaction_id`,`purchase_id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8",
+        "fields": {
+            "transaction_id": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "PRI",
+                "Default": null,
+                "Extra": ""
+            },
+            "purchase_id": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "PRI",
+                "Default": null,
+                "Extra": ""
+            },
+            "user_created": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "user_modified": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_created": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_modified": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            }
+        }
+    },
+    "translation": {
+        "details": {
+            "Engine": "InnoDB",
+            "Version": "10",
+            "Row_format": "Dynamic",
+            "Collation": "utf8_general_ci"
+        },
+        "syntax": "CREATE TABLE `translation` ( `id` int(10) unsigned NOT NULL AUTO_INCREMENT, `language_id` tinyint(3) unsigned NOT NULL, `table` char(20) NOT NULL DEFAULT '', `table_id` bigint(20) unsigned NOT NULL, `table_column` char(20) NOT NULL, `value` varchar(255) DEFAULT NULL, `text` text, `user_created` int(10) unsigned DEFAULT NULL, `user_modified` int(10) unsigned DEFAULT NULL, `date_created` datetime DEFAULT NULL, `date_modified` datetime DEFAULT NULL, PRIMARY KEY (`id`), UNIQUE KEY `language_id` (`language_id`,`table`,`table_id`,`table_column`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8",
+        "fields": {
+            "id": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "PRI",
+                "Default": null,
+                "Extra": "auto_increment"
+            },
+            "language_id": {
+                "Type": "tinyint(3) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "MUL",
+                "Default": null,
+                "Extra": ""
+            },
+            "table": {
+                "Type": "char(20)",
+                "Collation": "utf8_general_ci",
+                "Null": "NO",
+                "Key": "",
+                "Default": "",
+                "Extra": ""
+            },
+            "table_id": {
+                "Type": "bigint(20) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "table_column": {
+                "Type": "char(20)",
+                "Collation": "utf8_general_ci",
+                "Null": "NO",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "value": {
+                "Type": "varchar(255)",
+                "Collation": "utf8_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "text": {
+                "Type": "text",
+                "Collation": "utf8_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "user_created": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "user_modified": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_created": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_modified": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            }
+        }
+    },
+    "upload": {
+        "details": {
+            "Engine": "InnoDB",
+            "Version": "10",
+            "Row_format": "Dynamic",
+            "Collation": "utf8_general_ci"
+        },
+        "syntax": "CREATE TABLE `upload` ( `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT, `client_id` smallint(5) unsigned NOT NULL, `type` char(20) NOT NULL, `file_name` char(20) NOT NULL DEFAULT '', `file_path` varchar(255) DEFAULT '', `file_type` varchar(100) NOT NULL DEFAULT '', `file_size` bigint(20) unsigned NOT NULL, `image_width` smallint(6) unsigned DEFAULT NULL, `image_height` smallint(6) unsigned DEFAULT NULL, `image_rotate` smallint(3) DEFAULT NULL, `caption` varchar(255) DEFAULT NULL, `pending` tinyint(1) unsigned NOT NULL DEFAULT '0', `md5_checksum` char(32) DEFAULT NULL, `user_created` int(10) unsigned DEFAULT NULL, `user_modified` int(10) unsigned DEFAULT NULL, `date_created` datetime DEFAULT NULL, `date_modified` datetime DEFAULT NULL, PRIMARY KEY (`id`), KEY `company_id` (`client_id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8",
+        "fields": {
+            "id": {
+                "Type": "bigint(20) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "PRI",
+                "Default": null,
+                "Extra": "auto_increment"
+            },
+            "client_id": {
+                "Type": "smallint(5) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "MUL",
+                "Default": null,
+                "Extra": ""
+            },
+            "type": {
+                "Type": "char(20)",
+                "Collation": "utf8_general_ci",
+                "Null": "NO",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "file_name": {
+                "Type": "char(20)",
+                "Collation": "utf8_general_ci",
+                "Null": "NO",
+                "Key": "",
+                "Default": "",
+                "Extra": ""
+            },
+            "file_path": {
+                "Type": "varchar(255)",
+                "Collation": "utf8_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": "",
+                "Extra": ""
+            },
+            "file_type": {
+                "Type": "varchar(100)",
+                "Collation": "utf8_general_ci",
+                "Null": "NO",
+                "Key": "",
+                "Default": "",
+                "Extra": ""
+            },
+            "file_size": {
+                "Type": "bigint(20) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "image_width": {
+                "Type": "smallint(6) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "image_height": {
+                "Type": "smallint(6) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "image_rotate": {
+                "Type": "smallint(3)",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "caption": {
+                "Type": "varchar(255)",
+                "Collation": "utf8_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "pending": {
+                "Type": "tinyint(1) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": "0",
+                "Extra": ""
+            },
+            "md5_checksum": {
+                "Type": "char(32)",
+                "Collation": "utf8_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "user_created": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "user_modified": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_created": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_modified": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            }
+        }
+    },
+    "upload_pending_count": {
+        "details": {
+            "Engine": "InnoDB",
+            "Version": "10",
+            "Row_format": "Dynamic",
+            "Collation": "utf8_general_ci"
+        },
+        "syntax": "CREATE TABLE `upload_pending_count` ( `type` char(20) NOT NULL DEFAULT '', `count` int(10) unsigned NOT NULL DEFAULT '0', PRIMARY KEY (`type`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8",
+        "fields": {
+            "type": {
+                "Type": "char(20)",
+                "Collation": "utf8_general_ci",
+                "Null": "NO",
+                "Key": "PRI",
+                "Default": "",
+                "Extra": ""
+            },
+            "count": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": "0",
+                "Extra": ""
+            }
+        }
+    },
+    "url_rewrite": {
+        "details": {
+            "Engine": "InnoDB",
+            "Version": "10",
+            "Row_format": "Dynamic",
+            "Collation": "utf8_general_ci"
+        },
+        "syntax": "CREATE TABLE `url_rewrite` ( `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT, `language_id` tinyint(3) unsigned NOT NULL, `module` char(10) DEFAULT NULL, `url` varchar(255) NOT NULL, `route` varchar(255) NOT NULL, `mandatory` tinyint(1) unsigned NOT NULL DEFAULT '0', `user_created` int(10) unsigned DEFAULT NULL, `user_modified` int(10) unsigned DEFAULT NULL, `date_created` datetime DEFAULT NULL, `date_modified` datetime DEFAULT NULL, PRIMARY KEY (`id`), UNIQUE KEY `language_id_2` (`language_id`,`module`,`url`), KEY `language_id` (`language_id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8",
+        "fields": {
+            "id": {
+                "Type": "smallint(5) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "PRI",
+                "Default": null,
+                "Extra": "auto_increment"
+            },
+            "language_id": {
+                "Type": "tinyint(3) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "MUL",
+                "Default": null,
+                "Extra": ""
+            },
+            "module": {
+                "Type": "char(10)",
+                "Collation": "utf8_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "url": {
+                "Type": "varchar(255)",
+                "Collation": "utf8_general_ci",
+                "Null": "NO",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "route": {
+                "Type": "varchar(255)",
+                "Collation": "utf8_general_ci",
+                "Null": "NO",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "mandatory": {
+                "Type": "tinyint(1) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": "0",
+                "Extra": ""
+            },
+            "user_created": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "user_modified": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_created": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_modified": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            }
+        }
+    },
+    "user": {
+        "details": {
+            "Engine": "InnoDB",
+            "Version": "10",
+            "Row_format": "Dynamic",
+            "Collation": "utf8mb4_general_ci"
+        },
+        "syntax": "CREATE TABLE `user` ( `id` int(10) unsigned NOT NULL AUTO_INCREMENT, `username` char(100) NOT NULL DEFAULT '', `password` varchar(255) DEFAULT NULL, `name_title` tinyint(1) unsigned NOT NULL DEFAULT '0', `name_first` varchar(255) NOT NULL DEFAULT '', `name_prefix` char(30) DEFAULT NULL, `name_last` varchar(255) DEFAULT NULL, `otp_token` varchar(255) DEFAULT NULL, `active` tinyint(1) unsigned NOT NULL DEFAULT '1', `user_created` int(10) unsigned DEFAULT NULL, `user_modified` int(10) unsigned DEFAULT NULL, `date_last_login` datetime DEFAULT NULL, `date_last_otp` datetime DEFAULT NULL, `date_last_password` datetime DEFAULT NULL, `date_created` datetime DEFAULT NULL, `date_modified` datetime DEFAULT NULL, PRIMARY KEY (`id`), UNIQUE KEY `username` (`username`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
+        "fields": {
+            "id": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "PRI",
+                "Default": null,
+                "Extra": "auto_increment"
+            },
+            "username": {
+                "Type": "char(100)",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "NO",
+                "Key": "UNI",
+                "Default": "",
+                "Extra": ""
+            },
+            "password": {
+                "Type": "varchar(255)",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "name_title": {
+                "Type": "tinyint(1) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": "0",
+                "Extra": ""
+            },
+            "name_first": {
+                "Type": "varchar(255)",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "NO",
+                "Key": "",
+                "Default": "",
+                "Extra": ""
+            },
+            "name_prefix": {
+                "Type": "char(30)",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "name_last": {
+                "Type": "varchar(255)",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "otp_token": {
+                "Type": "varchar(255)",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "active": {
+                "Type": "tinyint(1) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": "1",
+                "Extra": ""
+            },
+            "user_created": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "user_modified": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_last_login": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_last_otp": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_last_password": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_created": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_modified": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            }
+        }
+    },
+    "user_access_token": {
+        "details": {
+            "Engine": "InnoDB",
+            "Version": "10",
+            "Row_format": "Dynamic",
+            "Collation": "utf8mb4_general_ci"
+        },
+        "syntax": "CREATE TABLE `user_access_token` ( `id` int(10) unsigned NOT NULL AUTO_INCREMENT, `user_id` int(10) unsigned DEFAULT NULL, `api_client_id` int(10) unsigned DEFAULT NULL, `type` tinyint(1) unsigned NOT NULL DEFAULT '1', `entity_id` smallint(5) unsigned NOT NULL, `access_token` char(64) NOT NULL DEFAULT '', `ip_address` varchar(25) NOT NULL DEFAULT '', `date_expire` datetime NOT NULL, `user_created` int(10) unsigned DEFAULT NULL, `user_modified` int(10) DEFAULT NULL, `date_created` datetime DEFAULT NULL, `date_modified` datetime DEFAULT NULL, PRIMARY KEY (`id`), UNIQUE KEY `access_token` (`access_token`), KEY `user_id` (`user_id`), KEY `api_client_id` (`api_client_id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
+        "fields": {
+            "id": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "PRI",
+                "Default": null,
+                "Extra": "auto_increment"
+            },
+            "user_id": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "MUL",
+                "Default": null,
+                "Extra": ""
+            },
+            "api_client_id": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "MUL",
+                "Default": null,
+                "Extra": ""
+            },
+            "type": {
+                "Type": "tinyint(1) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": "1",
+                "Extra": ""
+            },
+            "entity_id": {
+                "Type": "smallint(5) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "access_token": {
+                "Type": "char(64)",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "NO",
+                "Key": "UNI",
+                "Default": "",
+                "Extra": ""
+            },
+            "ip_address": {
+                "Type": "varchar(25)",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "NO",
+                "Key": "",
+                "Default": "",
+                "Extra": ""
+            },
+            "date_expire": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "user_created": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "user_modified": {
+                "Type": "int(10)",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_created": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_modified": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            }
+        }
+    },
+    "user_to_entity": {
+        "details": {
+            "Engine": "InnoDB",
+            "Version": "10",
+            "Row_format": "Dynamic",
+            "Collation": "utf8mb4_general_ci"
+        },
+        "syntax": "CREATE TABLE `user_to_entity` ( `user_id` int(10) unsigned NOT NULL, `entity_id` smallint(5) unsigned NOT NULL, PRIMARY KEY (`user_id`,`entity_id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
+        "fields": {
+            "user_id": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "PRI",
+                "Default": null,
+                "Extra": ""
+            },
+            "entity_id": {
+                "Type": "smallint(5) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "PRI",
+                "Default": null,
+                "Extra": ""
+            }
+        }
+    },
+    "vat_group": {
+        "details": {
+            "Engine": "InnoDB",
+            "Version": "10",
+            "Row_format": "Dynamic",
+            "Collation": "utf8mb4_general_ci"
+        },
+        "syntax": "CREATE TABLE `vat_group` ( `id` int(11) unsigned NOT NULL AUTO_INCREMENT, `title` varchar(255) NOT NULL DEFAULT '', `description` text, `amount` decimal(4,2) unsigned NOT NULL DEFAULT '0.00', `country_id` smallint(5) unsigned DEFAULT NULL, `user_created` int(10) unsigned DEFAULT NULL, `user_modified` int(10) DEFAULT NULL, `date_created` datetime DEFAULT NULL, `date_modified` datetime DEFAULT NULL, PRIMARY KEY (`id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4",
+        "fields": {
+            "id": {
+                "Type": "int(11) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "PRI",
+                "Default": null,
+                "Extra": "auto_increment"
+            },
+            "title": {
+                "Type": "varchar(255)",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "NO",
+                "Key": "",
+                "Default": "",
+                "Extra": ""
+            },
+            "description": {
+                "Type": "text",
+                "Collation": "utf8mb4_general_ci",
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "amount": {
+                "Type": "decimal(4,2) unsigned",
+                "Collation": null,
+                "Null": "NO",
+                "Key": "",
+                "Default": "0.00",
+                "Extra": ""
+            },
+            "country_id": {
+                "Type": "smallint(5) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "user_created": {
+                "Type": "int(10) unsigned",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "user_modified": {
+                "Type": "int(10)",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_created": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            },
+            "date_modified": {
+                "Type": "datetime",
+                "Collation": null,
+                "Null": "YES",
+                "Key": "",
+                "Default": null,
+                "Extra": ""
+            }
+        }
+    }
+}

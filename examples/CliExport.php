@@ -3,15 +3,12 @@
 
 use Phalcon\Db\Adapter\Pdo\Mysql;
 
-use FaimMedia\MySQLJSONExport\Export,
+use FaimMedia\MySQLJSONExport\Engine,
     FaimMedia\MySQLJSONExport\Helper\Parameters;
 
 require dirname(__DIR__, 4) . '/vendor/autoload.php';
 
 $parameters = new Parameters();
-
-var_dump($parameters->getParameters());
-
 $parameters->validateRequired('host', 'database', 'username', 'password');
 
 $mysql = new Mysql([
@@ -23,8 +20,10 @@ $mysql = new Mysql([
 	'charset'  => 'utf8mb4',
 ]);
 
-$export = new Export($mysql);
+$engine = new Engine($mysql, 'cache/');
 
-var_dump($export->getTriggersArray());
-
-var_dump($export->getTablesArray());
+if($parameters->__isset('--export')) {
+	$engine->export();
+} else {
+	$engine->compare();
+}
