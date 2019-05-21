@@ -11,13 +11,13 @@ class Parameters {
 	/**
 	 * Constructor
 	 */
-	public function __construct() {
+	public function __construct(string $delimiter = ':') {
 		global $argv;
 
 		$parameters = array_slice($argv, 1);
 
 		foreach($parameters as $parameter) {
-			$split = explode(':', $parameter);
+			$split = explode($delimiter, $parameter);
 
 			$this->_parameters[$split[0]] = isset($split[1]) ? $split[1] : true;
 		}
