@@ -27,4 +27,3 @@ if($parameters->__isset('--export')) {
 } else {
 	$engine->compare();
 }
-}
