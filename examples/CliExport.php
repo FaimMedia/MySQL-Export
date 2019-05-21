@@ -22,7 +22,7 @@ $mysql = new Mysql([
 
 $engine = new Engine($mysql, 'cache/');
 
-if($parameters->__isset('--export')) {
+if($parameters->isset('export')) {
 	$engine->export();
 } else {
 	$engine->compare();
