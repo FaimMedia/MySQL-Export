@@ -4,6 +4,9 @@ namespace FaimMedia\MySQLJSONExport\Helper;
 
 use Exception;
 
+/**
+ * Wrapper class for CLI parameters
+ */
 class Parameters {
 
 	protected $_parameters = [];
