@@ -90,9 +90,9 @@ class Compare extends AbstractEngine {
 		if($tableDiff) {
 			$this->log('The following tables do not existing in the current database:', 'red');
 
-			$tableArray = [];
+			$tablesArray = [];
 			foreach($tableDiff as $tableName) {
-				$tableArray[] = $tableName;
+				$tablesArray[] = $tableName;
 			}
 
 			$this->log(join(', ', $tablesArray), 'red');
