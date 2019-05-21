@@ -57,11 +57,7 @@ class Parameters {
 	 * Magic isset method
 	 */
 	public function __isset($key): bool {
-		if(array_key_exists($key, $this->_parameters)) {
-			return true;
-		}
-
-		return false;
+		return (array_key_exists($key, $this->_parameters));
 	}
 
 	/**
