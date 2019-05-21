@@ -47,6 +47,13 @@ class Parameters {
 	}
 
 	/**
+	 * Isset
+	 */
+	public function isset($key): bool {
+		return $this->__isset($key);
+	}
+
+	/**
 	 * Magic isset method
 	 */
 	public function __isset($key): bool {
