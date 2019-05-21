@@ -19,6 +19,12 @@ class Parameters {
 		foreach($parameters as $parameter) {
 			$split = explode($delimiter, $parameter);
 
+			if(substr($split[0], 0, 2) == '--') {
+				$split[0] = substr($split[0], 2);
+			} else {
+				unset($split[1]);
+			}
+
 			$this->_parameters[$split[0]] = isset($split[1]) ? $split[1] : true;
 		}
 	}
