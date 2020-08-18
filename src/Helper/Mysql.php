@@ -1,16 +1,22 @@
 <?php
 
-/**
- * Simple and clean database connection class
- */
-
 namespace FaimMedia\MySQLJSONExport\Helper;
 
 use PDO;
 
-use Exception;
+use FaimMedia\MySQLJSONExport\Helper\MysqlInterface;
 
-class Mysql {
+use Exception,
+    PDOException,
+    FaimMedia\MySQLJSONExport\Exception\QueryException;
+
+/**
+ * Simple and clean PDO database connection class
+ */
+class Mysql implements MysqlInterface
+{
+	const FETCH_ASSOC = PDO::FETCH_ASSOC;
+	const FETCH_NUM = PDO::FETCH_NUM;
 
 	const DSN_MYSQL_DRIVER = 'mysql';
 
@@ -20,8 +26,8 @@ class Mysql {
 	/**
 	 * Construct and connect
 	 */
-	public function __construct(array $setup) {
-
+	public function __construct(array $setup)
+	{
 		$this->_setup = $setup;
 
 		$this->connect();
@@ -30,13 +36,14 @@ class Mysql {
 	/**
 	 * Connect to database server
 	 */
-	public function connect(): self {
-
+	public function connect(): self
+	{
 		$this->disconnect();
 
 		$dsn = $this->buildDSN();
 
 		$this->_pdo = new PDO($dsn, $this->_setup['username'], $this->_setup['password']);
+		$this->_pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 		return $this;
 	}
@@ -44,7 +51,8 @@ class Mysql {
 	/**
 	 * Disconnect datbase server
 	 */
-	public function disconnect(): self {
+	public function disconnect(): self
+	{
 		if($this->_pdo !== null) {
 			$this->_pdo = null;
 		}
@@ -55,14 +63,14 @@ class Mysql {
 	/**
 	 * Build DSN
 	 */
-	public function buildDSN(): string {
-
+	protected function buildDSN(): string
+	{
 		if(!array_key_exists('username', $this->_setup)) {
 			throw new Exception('No username is specified');
 		}
 
 		if(!array_key_exists('dbname', $this->_setup)) {
-			throw new Exception('No dbname is specified');
+			$this->_setup['dbname'] = $this->_setup['username'];
 		}
 
 		if(!array_key_exists('host', $this->_setup)) {
@@ -88,20 +96,38 @@ class Mysql {
 	/**
 	 * Execute query
 	 */
-	public function query($query, $binds = [], int $fetchStyle = PDO::FETCH_ASSOC) {
+	public function query($query, $binds = [], int $fetchStyle = PDO::FETCH_ASSOC)
+	{
+		$query = trim($query);
+		$statement = $this->_pdo->prepare($query, $binds);
 
-		$statement = $this->_pdo->prepare($query);
-		$statement->execute();
+		$type = strstr($query, ' ', true);
+
+		try {
+			$exec = $statement->execute();
+
+			if(!in_array($type, ['SELECT', 'SHOW'])) {
+				return $exec;
+			}
+
+		} catch(PDOException $e) {
+			$ex = new QueryException($e->getMessage(), $e->getCode());
+			$ex->setQuery($query);
+
+			throw $ex;
+		}
 
 		return $statement->fetchAll($fetchStyle);
 	}
 
-/* MAGIC */
-
+/**
+ * MAGIC
+ **/
 	/**
 	 * Magic caller
 	 */
-	public function __call($name, $args) {
+	public function __call($name, $args)
+	{
 		if(is_callable([$this->_pdo, $name])) {
 			return call_user_func_array([$this->_pdo, $name], $args);
 		}

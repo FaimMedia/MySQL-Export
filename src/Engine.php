@@ -2,19 +2,21 @@
 
 namespace FaimMedia\MySQLJSONExport;
 
-use Phalcon\Db\Adapter\Pdo as PdoAdapter;
+use FaimMedia\MySQLJSONExport\{
+	Engine\Compare,
+	Engine\Export,
+	Helper\MysqlInterface
+};
 
-use FaimMedia\MySQLJSONExport\Engine\Compare,
-	FaimMedia\MySQLJSONExport\Engine\Export;
-
-use FaimMedia\MySQLJSONExport\Helper\Color;
+use FaimMedia\Helper\Cli\Color;
 
 /**
  * Engine wrapper class exporter
  */
-class Engine {
+class Engine
+{
+	protected $db;
 
-	protected $_db;
 	protected $_folder;
 	protected $_logHandler;
 
@@ -24,9 +26,9 @@ class Engine {
 	/**
 	 * Set required parameters
 	 */
-	public function __construct(PdoAdapter $db = null, string $folder = null, $logHandler = null) {
-
-		if($db instanceof PdoAdapter) {
+	public function __construct(MysqlInterface $db = null, string $folder = null, $logHandler = null)
+	{
+		if($db instanceof MysqlInterface) {
 			$this->setDatabase($db);
 		}
 
@@ -47,12 +49,12 @@ class Engine {
 	/**
 	 * Set database instance
 	 */
-	public function setDatabase(PdoAdapter $db): self {
-		if($db instanceof PdoAdapter) {
+	public function setDatabase(MysqlInterface $db): self
+	{
+		if($db instanceof MysqlInterface) {
+			$this->db = $db;
 
-			$this->_db = $db;
-
-			$this->_db->connect();
+			$this->db->connect();
 		}
 
 		return $this;
@@ -61,14 +63,16 @@ class Engine {
 	/**
 	 * Get database instance
 	 */
-	public function getDatabase(): PdoAdapter {
-		return $this->_db;
+	public function getDatabase(): MysqlInterface
+	{
+		return $this->db;
 	}
 
 	/**
 	 * Set log handler
 	 */
-	public function setLogHandler($logHandler): self {
+	public function setLogHandler($logHandler): self
+	{
 		if(!is_resource($logHandler)) {
 			throw new Exception('Invalid resource handler');
 		}
@@ -81,7 +85,11 @@ class Engine {
 	/**
 	 * Log message to log handler
 	 */
-	public function log(string $message): self {
+	public function log(string $message = null, $color = null, $index = 0): self
+	{
+		if($message === null) {
+			$message = '';
+		}
 
 		$newLine = true;
 		if(substr($message, 0, 1) == '!') {
@@ -90,14 +98,16 @@ class Engine {
 			$message = substr($message, 1);
 		}
 
-		$arguments = func_get_args();
-		array_shift($arguments);
-		array_unshift($arguments, $message);
+		$string = '';
 
-		$string = call_user_func_array(Color::class . '::parse', $arguments);
+		if($index) {
+			$string .= str_repeat("\t", $index);
+		}
+
+		$string .= Color::parse($message, $color);
 
 		if($newLine) {
-			$string = trim($string).PHP_EOL;
+			$string = $string.PHP_EOL;
 		}
 
 		fwrite($this->_logHandler, $string);
@@ -108,7 +118,8 @@ class Engine {
 	/**
 	 * Set folder
 	 */
-	public function setFolder(string $folder): self {
+	public function setFolder(string $folder): self
+	{
 		$this->checkFolder($folder);
 
 		return $this;
@@ -117,29 +128,32 @@ class Engine {
 	/**
 	 * Get folder
 	 */
-	public function getFolder(): string {
+	public function getFolder(): string
+	{
 		return $this->_folder;
 	}
 
 	/**
 	 * Get export instance
 	 */
-	public function getExport(): Export {
+	public function getExport(): Export
+	{
 		return $this->_export;
 	}
 
 	/**
 	 * Get compare instance
 	 */
-	public function getCompare(): Compare {
+	public function getCompare(): Compare
+	{
 		return $this->_compare;
 	}
 
 	/**
 	 * Check provided folder to write the export files to
 	 */
-	protected function checkFolder(string $folder): string {
-
+	protected function checkFolder(string $folder): string
+	{
 		if(!file_exists($folder)) {
 			if(!mkdir($folder, 0775, true)) {
 				throw new ExportException('Could not create export folder');
@@ -166,22 +180,24 @@ class Engine {
 	/**
 	 * Export
 	 */
-	public function export() {
+	public function export()
+	{
 		$this->getExport()->exportAll();
 	}
 
 	/**
 	 * Compare
 	 */
-	public function compare() {
+	public function compare()
+	{
 		$this->getCompare()->compareAll();
 	}
 
 	/**
 	 * Close log handler
 	 */
-	public function __destruct() {
-
+	public function __destruct()
+	{
 		if(is_resource($this->_logHandler)) {
 			fclose($this->_logHandler);
 		}

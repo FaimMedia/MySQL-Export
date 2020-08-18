@@ -2,34 +2,32 @@
 
 namespace FaimMedia\MySQLJSONExport\Engine;
 
-use Phalcon\Db;
-
-use FaimMedia\MySQLJSONExport\Engine\AbstractEngine;
-
-use FaimMedia\MySQLJSONExport\Helper\MysqlSyntax;
-
-use FaimMedia\MySQLJSONExport\Exception\ExportException;
+use FaimMedia\MySQLJSONExport\{
+	Engine\AbstractEngine,
+	Helper\Mysql,
+	Helper\MysqlSyntax,
+	Exception\ExportException
+};
 
 /**
  * Exports database data
  */
-class Export extends AbstractEngine {
-
+class Export extends AbstractEngine
+{
 	const EXPORT_FILE_TABLES = 'Tables.json';
 	const EXPORT_FILE_TRIGGERS = 'Triggers.json';
 
 	/**
 	 * Export all tables
 	 */
-	public function getTablesArray(): array {
-
+	public function getTablesArray(): array
+	{
 		$tablesArray = [];
 
 	// fetch tables
-		$result = $this->getDatabase()->query('SHOW TABLE STATUS');
-		$result->setFetchMode(Db::FETCH_ASSOC);
-
-		$tables = $result->fetchAll($result);
+		$tables = $this
+			->db
+			->query('SHOW TABLE STATUS');
 
 		$tableFields = ['Engine', 'Version', 'Row_format', 'Collation'];
 
@@ -40,10 +38,9 @@ class Export extends AbstractEngine {
 				'details' => array_intersect_key($table, array_flip($tableFields)),
 			];
 
-			$result = $this->getDatabase()->query('SHOW CREATE TABLE `'.$tableName.'`');
-			$result->setFetchMode(Db::FETCH_NUM);
-
-			$createTables = $result->fetchAll($result);
+			$createTables = $this
+				->db
+				->query('SHOW CREATE TABLE `'.$tableName.'`', [], Mysql::FETCH_NUM);
 
 			foreach($createTables as $createTable) {
 				$syntax = $createTable[1];
@@ -52,6 +49,7 @@ class Export extends AbstractEngine {
 
 				$tableArray += [
 					'syntax'  => $syntax,
+					'indexes' => $this->getTableIndexesArray($tableName),
 					'fields'  => $this->getTableFieldsArray($tableName),
 				];
 			}
@@ -65,18 +63,19 @@ class Export extends AbstractEngine {
 	/**
 	 * Export all table fields
 	 */
-	public function getTableFieldsArray(string $tableName): array {
-
+	public function getTableFieldsArray(string $tableName): array
+	{
 		$tableFieldsArray = [];
 
 	// get tables structure
-		$sql = $this->getDatabase()->query('SHOW FULL COLUMNS FROM `'.$tableName.'`');
-		$sql->setFetchMode(Db::FETCH_ASSOC);
-
-		$fields = $sql->fetchAll($sql);
+		$fields = $this
+			->db
+			->query('SHOW FULL COLUMNS FROM `'.$tableName.'`');
 
 		foreach($fields as $field) {
 			$fieldKey = $field['Field'];
+
+			$field['Type'] = strtoupper($field['Type']);
 
 			unset($field['Field']);
 			unset($field['Comment']);
@@ -89,17 +88,54 @@ class Export extends AbstractEngine {
 	}
 
 	/**
+	 * Export table indexes
+	 */
+	public function getTableIndexesArray(string $tableName): array
+	{
+		$tableIndexArray = [];
+
+		// get table indexes
+		$rows = $this
+			->db
+			->query('SHOW INDEXES FROM `'.$tableName.'`');
+
+		foreach($rows as $row) {
+			$keyName = $row['Key_name'];
+			$sequence = (int)$row['Seq_in_index'];
+
+			$type = 'INDEX';
+			if($keyName === 'PRIMARY') {
+				$type = 'PRIMARY';
+			} else if($row['Index_type'] == 'FULLTEXT') {
+				$type = 'FULLTEXT';
+			} else if((int)$row['Non_unique'] === 0) {
+				$type = 'UNIQUE';
+			}
+
+			if(!array_key_exists($keyName, $tableIndexArray)) {
+				$tableIndexArray[$keyName] = [
+					'type'      => $type,
+					'fields'    => [],
+				];
+			}
+
+			$tableIndexArray[$keyName]['fields'][$sequence] = $row['Column_name'];
+		}
+
+		return $tableIndexArray;
+	}
+
+	/**
 	 * Export all triggers
 	 */
-	public function getTriggersArray(): array {
-
+	public function getTriggersArray(): array
+	{
 		$triggersArray = [];
 
 	// fetch triggers
-		$result = $this->getDatabase()->query('SHOW TRIGGERS');
-		$result->setFetchMode(Db::FETCH_ASSOC);
-
-		$triggers = $result->fetchAll($result);
+		$triggers = $this
+			->db
+			->query('SHOW TRIGGERS');
 
 		foreach($triggers as $trigger) {
 			$triggerName = $trigger['Trigger'];
@@ -112,10 +148,9 @@ class Export extends AbstractEngine {
 				'sql_mode'  => $trigger['sql_mode'],
 			];
 
-			$result = $this->getDatabase()->query('SHOW CREATE TRIGGER `'.$triggerName.'`');
-			$result->setFetchMode(Db::FETCH_NUM);
-
-			$createTriggers = $result->fetchAll($result);
+			$createTriggers = $this
+				->db
+				->query('SHOW CREATE TRIGGER `'.$triggerName.'`', [], Mysql::FETCH_NU);
 
 			foreach($createTriggers as $createTrigger) {
 				$syntax = $createTrigger[2];
@@ -132,8 +167,8 @@ class Export extends AbstractEngine {
 	/**
 	 * Generate table export
 	 */
-	public function generateTablesExport(): string {
-
+	public function generateTablesExport(): string
+	{
 		$folder = $this->getFolder();
 
 		$json = json_encode($this->getTablesArray(), JSON_PRETTY_PRINT + JSON_UNESCAPED_SLASHES);
@@ -150,8 +185,8 @@ class Export extends AbstractEngine {
 	/**
 	 * Generate trigger export
 	 */
-	public function generateTriggersExport(): string {
-
+	public function generateTriggersExport(): string
+	{
 		$folder = $this->getFolder();
 
 		$json = json_encode($this->getTriggersArray(), JSON_PRETTY_PRINT + JSON_UNESCAPED_SLASHES);
@@ -168,7 +203,8 @@ class Export extends AbstractEngine {
 	/**
 	 * Export all
 	 */
-	public function exportAll(): self {
+	public function exportAll(): self
+	{
 		$this->generateTablesExport();
 		$this->generateTriggersExport();
 
@@ -178,9 +214,11 @@ class Export extends AbstractEngine {
 	/**
 	 * Read tables export file
 	 */
-	public function readTablesExportFile(): array {
-
+	public function readTablesExportFile(): array
+	{
 		$folder = $this->getFolder();
+
+		clearstatcache();
 
 		$exportFile = $folder.self::EXPORT_FILE_TABLES;
 
@@ -188,13 +226,18 @@ class Export extends AbstractEngine {
 
 		$data = json_decode($read, true);
 
+		if(json_last_error() !== JSON_ERROR_NONE) {
+			throw new ExportException('Could not read JSON-file: '.json_last_error_msg());
+		}
+
 		return $data;
 	}
 
 	/**
 	 * Read triggers export file
 	 */
-	public function readTriggersExportFile(): array {
+	public function readTriggersExportFile(): array
+	{
 
 
 

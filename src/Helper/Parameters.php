@@ -7,14 +7,15 @@ use Exception;
 /**
  * Wrapper class for CLI parameters
  */
-class Parameters {
-
+class Parameters
+{
 	protected $_parameters = [];
 
 	/**
 	 * Constructor
 	 */
-	public function __construct(string $delimiter = ':') {
+	public function __construct(string $delimiter = '=')
+	{
 		global $argv;
 
 		$parameters = array_slice($argv, 1);
@@ -35,8 +36,8 @@ class Parameters {
 	/**
 	 * Validate required parameters and throws exception
 	 */
-	public function validateRequired(): bool {
-
+	public function validateRequired(): bool
+	{
 		foreach(func_get_args() as $arg) {
 			if(isset($this->$arg)) {
 				continue;
@@ -51,28 +52,32 @@ class Parameters {
 	/**
 	 * Return an index of all parameters
 	 */
-	public function getParameters() {
+	public function getParameters()
+	{
 		return $this->_parameters;
 	}
 
 	/**
 	 * Isset
 	 */
-	public function isset($key): bool {
+	public function isset($key): bool
+	{
 		return $this->__isset($key);
 	}
 
 	/**
 	 * Magic isset method
 	 */
-	public function __isset($key): bool {
+	public function __isset($key): bool
+	{
 		return (array_key_exists($key, $this->_parameters));
 	}
 
 	/**
 	 * Magic getters
 	 */
-	public function __get($name) {
+	public function __get($name)
+	{
 		if(isset($this->_parameters[$name])) {
 			return $this->_parameters[$name];
 		}
@@ -83,7 +88,8 @@ class Parameters {
 	/**
 	 * Magic method getters (call)
 	 */
-	public function __call($name, $argument) {
+	public function __call($name, $argument)
+	{
 		if(substr($name, 0, 3) === 'get') {
 			$index = lcfirst(substr($name, 3));
 

@@ -5,7 +5,8 @@ namespace FaimMedia\MySQLJSONExport\Helper;
 /**
  * MySQL Syntax helper stripper
  */
-class MysqlSyntax {
+class MysqlSyntax
+{
 
 /**
  * STATIC
@@ -13,11 +14,12 @@ class MysqlSyntax {
 	/**
 	 * Parse trigger syntax
 	 */
-	public static function parseTriggerSyntax(string $syntax): string {
-	// remove definer syntax
+	public static function parseTriggerSyntax(string $syntax): string
+	{
+		// remove definer syntax
 		$syntax = preg_replace('/\sDEFINER=`.*?`@`.*?`\s/i', ' ', $syntax);
 
-	// replace for each row to next line
+		// replace for each row to next line
 		$syntax = preg_replace('/(\sFOR\sEACH\sROW)/i', "$1", $syntax);
 
 		return $syntax;
@@ -26,8 +28,8 @@ class MysqlSyntax {
 	/**
 	 * Parse create table syntax
 	 */
-	public static function parseCreateTableSyntax(string $syntax, $trim = true): string {
-
+	public static function parseCreateTableSyntax(string $syntax, $trim = true): string
+	{
 	// remove btree key type
 		$syntax = preg_replace('/\sUSING\sBTREE/i', ' ', $syntax);
 
@@ -57,23 +59,23 @@ class MysqlSyntax {
 	/**
 	 * Parse attributes
 	 */
-	public static function parseAttributes(array $attributes): string {
-
+	public static function parseAttributes(array $attributes): string
+	{
 		$notNull = ($attributes['Null'] == 'NO');
 		$type = strtolower($attributes['Type']);
 
-	// set tyoe
+	// set type
 		$query = $type;
 
-	// check null
-		if($notNull) {
-			$query .= ' NOT';
+	// set collation
+		if(isset($attributes['Collation'])) {
+			$prefix = strstr($attributes['Collation'], '_', true);
+
+			$query .= ' CHARACTER SET '.$prefix.' COLLATE '.$attributes['Collation'];
 		}
 
-		$query .= ' NULL';
-
 	// set default
-		$default = $attributes['Default'];
+		$default = @$attributes['Default'];
 		if($default !== null) {
 
 			if(substr($type, 0, 3) == 'int' || substr($type, 0, 7) == 'tinyint' || substr($type, 0, 8) == 'smallint') {
@@ -88,12 +90,60 @@ class MysqlSyntax {
 				$default = '"'.$default.'"';
 			}
 
-			if(isset($attributes['Collation'])) {
-				$query .= ' CHARACTER SET '.$attribute['Collation'];
-			}
-
 			$query .= ' DEFAULT '.$default;
 		}
+
+	// check null
+		if($notNull) {
+			$query .= ' NOT';
+		}
+
+		$query .= ' NULL';
+
+		if(!empty($attributes['Extra'])) {
+			//$query .= ' '.strtoupper($attributes['Extra']);
+		}
+
+		return $query;
+	}
+
+	/**
+	 * Generate table syntax
+	 */
+	protected static function generateTableSyntax(array $attributes): string
+	{
+		$query = '';
+
+		if(!empty($attributes['Engine'])) {
+			$query .= ' ENGINE='.$attribute['Engine'];
+		}
+
+		if(!empty($attributes['Collation'])) {
+			$prefix = strstr($attributes['Collation'], '_', true);
+
+			$query .= ' CONVERT TO CHARACTER SET '.$prefix;
+			$query .= ' COLLATE '.$attributes['Collation'];
+		}
+
+		return $query;
+	}
+
+	/**
+	 * Create table syntax
+	 */
+	public static function createTableSyntax($tableName, array $attributes): string
+	{
+
+	}
+
+	/**
+	 * Alter table syntax
+	 */
+	public static function alterTableSyntax($tableName, array $attributes): string
+	{
+		$query = 'ALTER TABLE `'.$tableName.'`';
+
+		$query .= self::generateTableSyntax($attributes);
 
 		return $query;
 	}
